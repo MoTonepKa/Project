@@ -11,14 +11,16 @@ namespace Project.Data
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
-
+                MessageBox.Show("База открыта: " + connection.DataSource);
                 var command = connection.CreateCommand();
                 command.CommandText =
                 @"
                 CREATE TABLE IF NOT EXISTS Users (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Name TEXT,
                     Username TEXT NOT NULL,
                     Email TEXT NOT NULL UNIQUE,
+                    University TEXT NOT NULL,
                     PasswordHash TEXT NOT NULL,
                     Role INTEGER NOT NULL
                 );
