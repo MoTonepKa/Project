@@ -68,6 +68,7 @@
             RegisterButton.TabIndex = 3;
             RegisterButton.Text = "Регистрация";
             RegisterButton.UseVisualStyleBackColor = true;
+            RegisterButton.Click += RegisterButton_Click;
             // 
             // LoginForm
             // 
@@ -79,7 +80,7 @@
             Controls.Add(PasswordTextBox);
             Controls.Add(LoginTextBox);
             Name = "LoginForm";
-            Text = "Form1";
+            Text = "LoginForm";
             Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
