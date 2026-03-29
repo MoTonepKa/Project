@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ExitButton = new Button();
+            LogoutButton = new Button();
             AddPostButton = new Button();
+            ModerationButton = new Button();
             SuspendLayout();
             // 
-            // ExitButton
+            // LogoutButton
             // 
-            ExitButton.Location = new Point(673, 7);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(98, 25);
-            ExitButton.TabIndex = 0;
-            ExitButton.Text = "Выйти";
-            ExitButton.UseVisualStyleBackColor = true;
+            LogoutButton.Location = new Point(673, 7);
+            LogoutButton.Name = "LogoutButton";
+            LogoutButton.Size = new Size(98, 25);
+            LogoutButton.TabIndex = 0;
+            LogoutButton.Text = "Выйти";
+            LogoutButton.UseVisualStyleBackColor = true;
+            LogoutButton.Click += LogoutButton_Click;
             // 
             // AddPostButton
             // 
@@ -50,13 +52,23 @@
             AddPostButton.Text = "Предложить событие";
             AddPostButton.UseVisualStyleBackColor = true;
             // 
+            // ModerationButton
+            // 
+            ModerationButton.Location = new Point(646, 379);
+            ModerationButton.Name = "ModerationButton";
+            ModerationButton.Size = new Size(142, 23);
+            ModerationButton.TabIndex = 2;
+            ModerationButton.Text = "Модерация";
+            ModerationButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ModerationButton);
             Controls.Add(AddPostButton);
-            Controls.Add(ExitButton);
+            Controls.Add(LogoutButton);
             Name = "MainForm";
             Text = "MainForm";
             ResumeLayout(false);
@@ -64,7 +76,8 @@
 
         #endregion
 
-        private Button ExitButton;
+        private Button LogoutButton;
         private Button AddPostButton;
+        private Button ModerationButton;
     }
 }

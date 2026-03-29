@@ -39,7 +39,9 @@ namespace Project
             if (user != null)
             {
                 MessageBox.Show("Добро пожаловать, " + user.Name);
-
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+                this.Hide();
                 // дальше откроем главное окно
             }
             else

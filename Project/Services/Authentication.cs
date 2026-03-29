@@ -3,7 +3,9 @@ using Project.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Security.Cryptography;
 using Project.Models;
+
 
 namespace Project.Models
 {
@@ -50,7 +52,18 @@ namespace Project.Models
         }
         private string Hash(string input)
         {
-            return input.GetHashCode().ToString();
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                StringBuilder builder = new StringBuilder();
+                foreach (var b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
     }
 }

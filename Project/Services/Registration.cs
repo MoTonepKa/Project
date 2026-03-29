@@ -2,6 +2,7 @@
 using Project.Data;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Project.Services
@@ -32,7 +33,18 @@ namespace Project.Services
 
         private string Hash(string input)
         {
-            return input.GetHashCode().ToString(); // простой хеш для теста
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+                StringBuilder builder = new StringBuilder();
+                foreach (var b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
         }
     }
 }
