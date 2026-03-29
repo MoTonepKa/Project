@@ -22,7 +22,7 @@ namespace Project.Data
                     Email TEXT NOT NULL UNIQUE,
                     University TEXT NOT NULL,
                     PasswordHash TEXT NOT NULL,
-                    Role INTEGER NOT NULL
+                    Role INTEGER NOT NULL DEFAULT 0
                 );
                 ";
 
