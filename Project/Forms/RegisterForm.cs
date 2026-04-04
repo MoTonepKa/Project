@@ -1,14 +1,25 @@
-﻿using Project.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using MyFunctions;
+using Project.Services;
 
 namespace Project.Forms
 {
     public partial class RegisterForm : Form
     {
-
         public RegisterForm()
         {
             InitializeComponent();
-            Program.LoadFont(this);
+
+            NameTextBox.SetPadding(new Padding(10, 10, 10, 10));
+            LoginTextBox.SetPadding(new Padding(10, 10, 10, 10));
+            PasswordTextBox.SetPadding(new Padding(10, 10, 10, 10));
         }
 
         private Registration _authService = new Registration();
@@ -20,17 +31,10 @@ namespace Project.Forms
                 MessageBox.Show("Заполните все обязательные поля!");
                 return;
             }
-            else if (PasswordTextBox.Text.Length < 8)
-            {
-                MessageBox.Show("Пароль должен состоять не менее 8 символов!");
-                return;
-            }
 
             string name = string.IsNullOrWhiteSpace(NameTextBox.Text)
                 ? "Аноним"
                 : NameTextBox.Text;
-
-            string password = PasswordTextBox.Text;
 
             try
             {
@@ -39,7 +43,7 @@ namespace Project.Forms
                     NameTextBox.Text,
                     LoginTextBox.Text,
                     UniversityComboBox.SelectedItem.ToString(),
-                    password
+                    PasswordTextBox.Text
                 );
 
                 MessageBox.Show("Регистрация успешна!");
@@ -56,7 +60,7 @@ namespace Project.Forms
             Close();
         }
 
-        private void RegisterForm_Closed(object sender, FormClosedEventArgs e)
+        private void RegisterForm_Closed(object sender, FormClosedEventArgs e) 
         {
             Program.MainForm.Show();
         }

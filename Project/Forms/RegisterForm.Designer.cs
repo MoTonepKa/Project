@@ -33,23 +33,16 @@
             NameTextBox = new TextBox();
             LoginTextBox = new TextBox();
             UniversityComboBox = new ComboBox();
+            UniversityLabel = new Label();
             PasswordTextBox = new TextBox();
             LoginButton = new Button();
-            NameGroupBox = new GroupBox();
-            LoginGroupBox = new GroupBox();
-            groupBox1 = new GroupBox();
-            label1 = new Label();
-            TitleBar = new TitleBar();
-            NameGroupBox.SuspendLayout();
-            LoginGroupBox.SuspendLayout();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(203, 398);
+            RegisterButton.Location = new Point(197, 358);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(154, 50);
+            RegisterButton.Size = new Size(144, 50);
             RegisterButton.TabIndex = 0;
             RegisterButton.Text = "Зарегистрироваться";
             RegisterButton.UseVisualStyleBackColor = true;
@@ -57,138 +50,80 @@
             // 
             // NameTextBox
             // 
-            NameTextBox.BorderStyle = BorderStyle.None;
-            NameTextBox.Location = new Point(13, 22);
-            NameTextBox.MaxLength = 32;
+            NameTextBox.Location = new Point(43, 79);
+            NameTextBox.Multiline = true;
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.PlaceholderText = "введите имя (необязательно)";
-            NameTextBox.Size = new Size(288, 16);
+            NameTextBox.PlaceholderText = "Ваше имя (необязательно):";
+            NameTextBox.Size = new Size(298, 45);
             NameTextBox.TabIndex = 1;
             // 
             // LoginTextBox
             // 
-            LoginTextBox.BorderStyle = BorderStyle.None;
-            LoginTextBox.Location = new Point(13, 22);
-            LoginTextBox.MaxLength = 32;
+            LoginTextBox.Location = new Point(43, 130);
+            LoginTextBox.Multiline = true;
             LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.PlaceholderText = "введите логин (обязательно)";
-            LoginTextBox.Size = new Size(288, 16);
+            LoginTextBox.PlaceholderText = "Ваш логин (обязательно):";
+            LoginTextBox.Size = new Size(298, 45);
             LoginTextBox.TabIndex = 2;
             // 
             // UniversityComboBox
             // 
-            UniversityComboBox.BackColor = SystemColors.Window;
-            UniversityComboBox.DisplayMember = "0";
-            UniversityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            UniversityComboBox.FlatStyle = FlatStyle.System;
             UniversityComboBox.FormattingEnabled = true;
-            UniversityComboBox.Items.AddRange(new object[] { "Не учусь", "ТУИТ", "ТГТУ", "ТГЭУ" });
-            UniversityComboBox.Location = new Point(43, 256);
+            UniversityComboBox.Items.AddRange(new object[] { "ТГТУ", "ТУИТ", "ТГЭУ" });
+            UniversityComboBox.Location = new Point(43, 226);
             UniversityComboBox.Name = "UniversityComboBox";
-            UniversityComboBox.Size = new Size(314, 23);
+            UniversityComboBox.Size = new Size(298, 25);
             UniversityComboBox.TabIndex = 3;
+            UniversityComboBox.Text = "Пусто";
+            // 
+            // UniversityLabel
+            // 
+            UniversityLabel.AutoSize = true;
+            UniversityLabel.Location = new Point(43, 206);
+            UniversityLabel.Name = "UniversityLabel";
+            UniversityLabel.Size = new Size(116, 17);
+            UniversityLabel.TabIndex = 4;
+            UniversityLabel.Text = "Ваш университет:";
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.BorderStyle = BorderStyle.None;
-            PasswordTextBox.Location = new Point(13, 22);
-            PasswordTextBox.MaxLength = 16;
+            PasswordTextBox.Location = new Point(43, 266);
+            PasswordTextBox.Multiline = true;
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.PlaceholderText = "введите пароль (обязательно)";
-            PasswordTextBox.Size = new Size(288, 16);
+            PasswordTextBox.PlaceholderText = "Ваш пароль (обязательно):";
+            PasswordTextBox.Size = new Size(298, 45);
             PasswordTextBox.TabIndex = 5;
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(43, 398);
+            LoginButton.Location = new Point(43, 358);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(154, 50);
+            LoginButton.Size = new Size(144, 50);
             LoginButton.TabIndex = 6;
             LoginButton.Text = "Назад";
             LoginButton.UseVisualStyleBackColor = true;
             LoginButton.Click += LoginButton_Click;
             // 
-            // NameGroupBox
-            // 
-            NameGroupBox.Controls.Add(NameTextBox);
-            NameGroupBox.Location = new Point(43, 92);
-            NameGroupBox.Name = "NameGroupBox";
-            NameGroupBox.Padding = new Padding(10, 2, 10, 10);
-            NameGroupBox.Size = new Size(314, 50);
-            NameGroupBox.TabIndex = 7;
-            NameGroupBox.TabStop = false;
-            NameGroupBox.Text = "Имя";
-            // 
-            // LoginGroupBox
-            // 
-            LoginGroupBox.Controls.Add(LoginTextBox);
-            LoginGroupBox.Location = new Point(43, 148);
-            LoginGroupBox.Name = "LoginGroupBox";
-            LoginGroupBox.Padding = new Padding(10, 2, 10, 10);
-            LoginGroupBox.Size = new Size(314, 50);
-            LoginGroupBox.TabIndex = 8;
-            LoginGroupBox.TabStop = false;
-            LoginGroupBox.Text = "Логин";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(PasswordTextBox);
-            groupBox1.Location = new Point(43, 298);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(10, 2, 10, 10);
-            groupBox1.Size = new Size(314, 50);
-            groupBox1.TabIndex = 9;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Пароль";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(48, 234);
-            label1.Margin = new Padding(4);
-            label1.Name = "label1";
-            label1.Size = new Size(76, 15);
-            label1.TabIndex = 10;
-            label1.Text = "Университет";
-            // 
-            // TitleBar
-            // 
-            TitleBar.AutoValidate = AutoValidate.EnablePreventFocusChange;
-            TitleBar.BackColor = Color.DarkGray;
-            TitleBar.Location = new Point(0, 0);
-            TitleBar.Name = "TitleBar";
-            TitleBar.Size = new Size(400, 32);
-            TitleBar.TabIndex = 11;
-            TitleBar.Title = "Регистрация";
-            // 
             // RegisterForm
             // 
-            AutoScaleMode = AutoScaleMode.None;
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(400, 480);
-            Controls.Add(TitleBar);
-            Controls.Add(label1);
-            Controls.Add(UniversityComboBox);
-            Controls.Add(groupBox1);
-            Controls.Add(LoginGroupBox);
-            Controls.Add(NameGroupBox);
+            ClientSize = new Size(384, 441);
             Controls.Add(LoginButton);
+            Controls.Add(PasswordTextBox);
+            Controls.Add(UniversityLabel);
+            Controls.Add(UniversityComboBox);
+            Controls.Add(LoginTextBox);
+            Controls.Add(NameTextBox);
             Controls.Add(RegisterButton);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            FormBorderStyle = FormBorderStyle.None;
+            Font = new Font("Roboto Slab", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RegisterForm";
-            Padding = new Padding(40, 29, 40, 29);
-            SizeGripStyle = SizeGripStyle.Hide;
+            Padding = new Padding(40, 30, 40, 30);
             StartPosition = FormStartPosition.CenterParent;
             Text = "Регистрация";
             FormClosed += RegisterForm_Closed;
-            NameGroupBox.ResumeLayout(false);
-            NameGroupBox.PerformLayout();
-            LoginGroupBox.ResumeLayout(false);
-            LoginGroupBox.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -199,12 +134,8 @@
         private TextBox NameTextBox;
         private TextBox LoginTextBox;
         private ComboBox UniversityComboBox;
+        private Label UniversityLabel;
         private TextBox PasswordTextBox;
         private Button LoginButton;
-        private GroupBox NameGroupBox;
-        private GroupBox LoginGroupBox;
-        private GroupBox groupBox1;
-        private Label label1;
-        private TitleBar TitleBar;
     }
 }
