@@ -30,7 +30,7 @@
         {
             RegisterButton = new Button();
             NameTextBox = new TextBox();
-            LoginTextBox1 = new TextBox();
+            LoginTextBox = new TextBox();
             UniversityComboBox = new ComboBox();
             UniversityLabel = new Label();
             PasswordTextBox = new TextBox();
@@ -38,12 +38,13 @@
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(310, 267);
+            RegisterButton.Location = new Point(310, 264);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(145, 32);
+            RegisterButton.Size = new Size(177, 32);
             RegisterButton.TabIndex = 0;
             RegisterButton.Text = "Зарегистрироваться";
             RegisterButton.UseVisualStyleBackColor = true;
+            RegisterButton.Click += RegisterButton_Click;
             // 
             // NameTextBox
             // 
@@ -53,13 +54,13 @@
             NameTextBox.Size = new Size(176, 23);
             NameTextBox.TabIndex = 1;
             // 
-            // LoginTextBox1
+            // LoginTextBox
             // 
-            LoginTextBox1.Location = new Point(311, 123);
-            LoginTextBox1.Name = "LoginTextBox1";
-            LoginTextBox1.PlaceholderText = "Ваш логин (обязательно):";
-            LoginTextBox1.Size = new Size(176, 23);
-            LoginTextBox1.TabIndex = 2;
+            LoginTextBox.Location = new Point(311, 123);
+            LoginTextBox.Name = "LoginTextBox";
+            LoginTextBox.PlaceholderText = "Ваш логин (обязательно):";
+            LoginTextBox.Size = new Size(176, 23);
+            LoginTextBox.TabIndex = 2;
             // 
             // UniversityComboBox
             // 
@@ -67,7 +68,7 @@
             UniversityComboBox.Items.AddRange(new object[] { "ТГТУ", "ТУИТ", "ТГЭУ" });
             UniversityComboBox.Location = new Point(311, 176);
             UniversityComboBox.Name = "UniversityComboBox";
-            UniversityComboBox.Size = new Size(140, 23);
+            UniversityComboBox.Size = new Size(176, 23);
             UniversityComboBox.TabIndex = 3;
             // 
             // UniversityLabel
@@ -95,7 +96,7 @@
             Controls.Add(PasswordTextBox);
             Controls.Add(UniversityLabel);
             Controls.Add(UniversityComboBox);
-            Controls.Add(LoginTextBox1);
+            Controls.Add(LoginTextBox);
             Controls.Add(NameTextBox);
             Controls.Add(RegisterButton);
             Name = "RegisterForm";
@@ -108,7 +109,7 @@
 
         private Button RegisterButton;
         private TextBox NameTextBox;
-        private TextBox LoginTextBox1;
+        private TextBox LoginTextBox;
         private ComboBox UniversityComboBox;
         private Label UniversityLabel;
         private TextBox PasswordTextBox;
