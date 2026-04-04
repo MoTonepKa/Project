@@ -1,23 +1,24 @@
+using System.Runtime.InteropServices;
 using Project.Forms;
 using Project.Models;
+using MyFunctions;
 
 namespace Project
 {
     public partial class LoginForm : Form
     {
-
         public LoginForm()
         {
             InitializeComponent();
-        }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
+            LoginTextBox.SetPadding(new Padding(10, 10, 10, 10)); 
+            PasswordTextBox.SetPadding(new Padding(10, 10, 10, 10));
+            this.AddGlobalKeyPress();
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+            Hide();
             RegisterForm registerForm = new RegisterForm();
             registerForm.ShowDialog(); // форма открывается модально (поверх основной формы)
         }
@@ -41,7 +42,7 @@ namespace Project
                 MessageBox.Show("Добро пожаловать, " + user.Name);
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
-                this.Hide();
+                Hide();
                 // дальше откроем главное окно
             }
             else

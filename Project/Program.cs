@@ -1,8 +1,11 @@
 using Project.Data;
+using Project.Forms;
+
 namespace Project
 {
     internal static class Program
     {
+        public static Form MainForm = new LoginForm();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -13,7 +16,7 @@ namespace Project
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Database.Initialize();
-            Application.Run(new LoginForm());
+            Application.Run(MainForm);
         }
     }
 }

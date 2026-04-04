@@ -1,4 +1,6 @@
-﻿namespace Project
+﻿using System.Windows.Forms.VisualStyles;
+
+namespace Project
 {
     partial class LoginForm
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             LoginTextBox = new TextBox();
             PasswordTextBox = new TextBox();
             LoginButton = new Button();
@@ -36,26 +39,29 @@
             // 
             // LoginTextBox
             // 
-            LoginTextBox.Location = new Point(305, 134);
+            LoginTextBox.BackColor = SystemColors.Window;
+            LoginTextBox.Location = new Point(43, 191);
+            LoginTextBox.Multiline = true;
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.PlaceholderText = "Ваш логин:";
-            LoginTextBox.Size = new Size(157, 23);
+            LoginTextBox.Size = new Size(298, 45);
             LoginTextBox.TabIndex = 0;
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(305, 163);
+            PasswordTextBox.Location = new Point(43, 259);
+            PasswordTextBox.Multiline = true;
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PlaceholderText = "Ваш пароль:";
-            PasswordTextBox.Size = new Size(157, 23);
+            PasswordTextBox.Size = new Size(298, 45);
             PasswordTextBox.TabIndex = 1;
             PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(320, 192);
+            LoginButton.Location = new Point(43, 358);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(123, 34);
+            LoginButton.Size = new Size(144, 50);
             LoginButton.TabIndex = 2;
             LoginButton.Text = "Войти";
             LoginButton.UseVisualStyleBackColor = true;
@@ -63,9 +69,9 @@
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(320, 232);
+            RegisterButton.Location = new Point(197, 358);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(123, 34);
+            RegisterButton.Size = new Size(144, 50);
             RegisterButton.TabIndex = 3;
             RegisterButton.Text = "Регистрация";
             RegisterButton.UseVisualStyleBackColor = true;
@@ -73,16 +79,20 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(384, 441);
             Controls.Add(RegisterButton);
             Controls.Add(LoginButton);
             Controls.Add(PasswordTextBox);
             Controls.Add(LoginTextBox);
+            Font = new Font("Roboto Slab", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginForm";
-            Text = "LoginForm";
-            Load += LoginForm_Load;
+            Padding = new Padding(40, 30, 40, 30);
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Вход в систему";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -17,9 +17,15 @@ namespace Project.Forms
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            this.Close();
+            Program.MainForm.Show();
+            Close();
+        }
+
+        private void MainForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            //Program.MainForm.Close();
+            // При выходе из аккаунта есть баг при котором окно закрывается
+            Program.MainForm.Show();
         }
     }
 }
