@@ -23,9 +23,7 @@ namespace Project.Forms
 
         private void MainForm_Closed(object sender, FormClosedEventArgs e)
         {
-            //Program.MainForm.Close();
-            // При выходе из аккаунта есть баг при котором окно закрывается
-            Program.MainForm.Show();
+            if (!Program.MainForm.Visible) Program.MainForm.Close();
         }
     }
 }

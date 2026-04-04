@@ -41,6 +41,7 @@ namespace Project
             // 
             LoginTextBox.BackColor = SystemColors.Window;
             LoginTextBox.Location = new Point(43, 191);
+            LoginTextBox.MaxLength = 32;
             LoginTextBox.Multiline = true;
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.PlaceholderText = "Ваш логин:";
@@ -50,12 +51,15 @@ namespace Project
             // PasswordTextBox
             // 
             PasswordTextBox.Location = new Point(43, 259);
+            PasswordTextBox.MaxLength = 16;
             PasswordTextBox.Multiline = true;
             PasswordTextBox.Name = "PasswordTextBox";
+            PasswordTextBox.PasswordChar = '*';
             PasswordTextBox.PlaceholderText = "Ваш пароль:";
             PasswordTextBox.Size = new Size(298, 45);
             PasswordTextBox.TabIndex = 1;
             PasswordTextBox.UseSystemPasswordChar = true;
+            PasswordTextBox.KeyPress += Password_Write;
             // 
             // LoginButton
             // 
