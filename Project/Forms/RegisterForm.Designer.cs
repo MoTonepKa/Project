@@ -51,6 +51,7 @@
             // NameTextBox
             // 
             NameTextBox.Location = new Point(43, 79);
+            NameTextBox.MaxLength = 32;
             NameTextBox.Multiline = true;
             NameTextBox.Name = "NameTextBox";
             NameTextBox.PlaceholderText = "Ваше имя (необязательно):";
@@ -60,6 +61,7 @@
             // LoginTextBox
             // 
             LoginTextBox.Location = new Point(43, 130);
+            LoginTextBox.MaxLength = 32;
             LoginTextBox.Multiline = true;
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.PlaceholderText = "Ваш логин (обязательно):";
@@ -68,13 +70,15 @@
             // 
             // UniversityComboBox
             // 
+            UniversityComboBox.BackColor = SystemColors.Window;
+            UniversityComboBox.DisplayMember = "0";
+            UniversityComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             UniversityComboBox.FormattingEnabled = true;
-            UniversityComboBox.Items.AddRange(new object[] { "ТГТУ", "ТУИТ", "ТГЭУ" });
+            UniversityComboBox.Items.AddRange(new object[] { "Не учусь", "ТУИТ", "ТГТУ", "ТГЭУ" });
             UniversityComboBox.Location = new Point(43, 226);
             UniversityComboBox.Name = "UniversityComboBox";
             UniversityComboBox.Size = new Size(298, 25);
             UniversityComboBox.TabIndex = 3;
-            UniversityComboBox.Text = "Пусто";
             // 
             // UniversityLabel
             // 
@@ -88,11 +92,13 @@
             // PasswordTextBox
             // 
             PasswordTextBox.Location = new Point(43, 266);
+            PasswordTextBox.MaxLength = 16;
             PasswordTextBox.Multiline = true;
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PlaceholderText = "Ваш пароль (обязательно):";
             PasswordTextBox.Size = new Size(298, 45);
             PasswordTextBox.TabIndex = 5;
+            PasswordTextBox.KeyPress += Password_Write;
             // 
             // LoginButton
             // 
