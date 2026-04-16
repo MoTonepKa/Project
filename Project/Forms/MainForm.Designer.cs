@@ -36,7 +36,7 @@
             // 
             // LogoutButton
             // 
-            LogoutButton.Location = new Point(673, 8);
+            LogoutButton.Location = new Point(12, 12);
             LogoutButton.Name = "LogoutButton";
             LogoutButton.Size = new Size(98, 28);
             LogoutButton.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // AddPostButton
             // 
-            AddPostButton.Location = new Point(645, 470);
+            AddPostButton.Location = new Point(12, 78);
             AddPostButton.Name = "AddPostButton";
             AddPostButton.Size = new Size(143, 26);
             AddPostButton.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // ModerationButton
             // 
-            ModerationButton.Location = new Point(646, 430);
+            ModerationButton.Location = new Point(12, 46);
             ModerationButton.Name = "ModerationButton";
             ModerationButton.Size = new Size(142, 26);
             ModerationButton.TabIndex = 2;
@@ -64,13 +64,12 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 510);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(784, 521);
             Controls.Add(ModerationButton);
             Controls.Add(AddPostButton);
             Controls.Add(LogoutButton);
-            Font = new Font("Roboto Slab", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;

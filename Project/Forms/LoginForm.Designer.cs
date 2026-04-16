@@ -35,35 +35,38 @@ namespace Project
             PasswordTextBox = new TextBox();
             LoginButton = new Button();
             RegisterButton = new Button();
+            LoginGroupBox = new GroupBox();
+            PasswordGroupBox = new GroupBox();
+            LoginGroupBox.SuspendLayout();
+            PasswordGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // LoginTextBox
             // 
             LoginTextBox.BackColor = SystemColors.Window;
-            LoginTextBox.Location = new Point(43, 191);
+            LoginTextBox.BorderStyle = BorderStyle.None;
+            LoginTextBox.Location = new Point(13, 21);
             LoginTextBox.MaxLength = 32;
-            LoginTextBox.Multiline = true;
             LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.PlaceholderText = "Ваш логин:";
-            LoginTextBox.Size = new Size(298, 45);
+            LoginTextBox.PlaceholderText = "введите логин";
+            LoginTextBox.Size = new Size(272, 16);
             LoginTextBox.TabIndex = 0;
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(43, 259);
+            PasswordTextBox.BorderStyle = BorderStyle.None;
+            PasswordTextBox.Location = new Point(13, 21);
             PasswordTextBox.MaxLength = 16;
-            PasswordTextBox.Multiline = true;
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PasswordChar = '*';
-            PasswordTextBox.PlaceholderText = "Ваш пароль:";
-            PasswordTextBox.Size = new Size(298, 45);
+            PasswordTextBox.PlaceholderText = "введите пароль";
+            PasswordTextBox.Size = new Size(272, 16);
             PasswordTextBox.TabIndex = 1;
             PasswordTextBox.UseSystemPasswordChar = true;
-            PasswordTextBox.KeyPress += Password_Write;
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(43, 358);
+            LoginButton.Location = new Point(43, 360);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(144, 50);
             LoginButton.TabIndex = 2;
@@ -73,7 +76,7 @@ namespace Project
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(197, 358);
+            RegisterButton.Location = new Point(197, 360);
             RegisterButton.Name = "RegisterButton";
             RegisterButton.Size = new Size(144, 50);
             RegisterButton.TabIndex = 3;
@@ -81,24 +84,48 @@ namespace Project
             RegisterButton.UseVisualStyleBackColor = true;
             RegisterButton.Click += RegisterButton_Click;
             // 
+            // LoginGroupBox
+            // 
+            LoginGroupBox.Controls.Add(LoginTextBox);
+            LoginGroupBox.Location = new Point(43, 204);
+            LoginGroupBox.Name = "LoginGroupBox";
+            LoginGroupBox.Padding = new Padding(10, 2, 10, 10);
+            LoginGroupBox.Size = new Size(298, 50);
+            LoginGroupBox.TabIndex = 4;
+            LoginGroupBox.TabStop = false;
+            LoginGroupBox.Text = "Логин";
+            // 
+            // PasswordGroupBox
+            // 
+            PasswordGroupBox.Controls.Add(PasswordTextBox);
+            PasswordGroupBox.Location = new Point(43, 260);
+            PasswordGroupBox.Name = "PasswordGroupBox";
+            PasswordGroupBox.Padding = new Padding(10, 2, 10, 10);
+            PasswordGroupBox.Size = new Size(298, 50);
+            PasswordGroupBox.TabIndex = 5;
+            PasswordGroupBox.TabStop = false;
+            PasswordGroupBox.Text = "Пароль";
+            // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             ClientSize = new Size(384, 441);
+            Controls.Add(PasswordGroupBox);
+            Controls.Add(LoginGroupBox);
             Controls.Add(RegisterButton);
             Controls.Add(LoginButton);
-            Controls.Add(PasswordTextBox);
-            Controls.Add(LoginTextBox);
-            Font = new Font("Roboto Slab", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginForm";
             Padding = new Padding(40, 30, 40, 30);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Вход в систему";
+            LoginGroupBox.ResumeLayout(false);
+            LoginGroupBox.PerformLayout();
+            PasswordGroupBox.ResumeLayout(false);
+            PasswordGroupBox.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -107,5 +134,7 @@ namespace Project
         private TextBox PasswordTextBox;
         private Button LoginButton;
         private Button RegisterButton;
+        private GroupBox LoginGroupBox;
+        private GroupBox PasswordGroupBox;
     }
 }
