@@ -32,49 +32,129 @@
             LogoutButton = new Button();
             AddPostButton = new Button();
             ModerationButton = new Button();
+            MainPanel = new Panel();
+            panel1 = new Panel();
+            SearchTextBox = new TextBox();
+            SearchPanel = new Panel();
+            ProfileImageBox = new PictureBox();
+            ProfileLabel = new Label();
+            MainPanel.SuspendLayout();
+            SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ProfileImageBox).BeginInit();
             SuspendLayout();
             // 
             // LogoutButton
             // 
-            LogoutButton.Location = new Point(12, 12);
+            LogoutButton.Location = new Point(26, 459);
             LogoutButton.Name = "LogoutButton";
-            LogoutButton.Size = new Size(98, 28);
-            LogoutButton.TabIndex = 0;
+            LogoutButton.Size = new Size(200, 50);
+            LogoutButton.TabIndex = 2;
             LogoutButton.Text = "Выйти";
             LogoutButton.UseVisualStyleBackColor = true;
             LogoutButton.Click += LogoutButton_Click;
             // 
             // AddPostButton
             // 
-            AddPostButton.Location = new Point(12, 78);
+            AddPostButton.Location = new Point(26, 403);
             AddPostButton.Name = "AddPostButton";
-            AddPostButton.Size = new Size(143, 26);
+            AddPostButton.Size = new Size(200, 50);
             AddPostButton.TabIndex = 1;
             AddPostButton.Text = "Предложить событие";
             AddPostButton.UseVisualStyleBackColor = true;
             // 
             // ModerationButton
             // 
-            ModerationButton.Location = new Point(12, 46);
+            ModerationButton.Location = new Point(26, 347);
             ModerationButton.Name = "ModerationButton";
-            ModerationButton.Size = new Size(142, 26);
-            ModerationButton.TabIndex = 2;
+            ModerationButton.Size = new Size(200, 50);
+            ModerationButton.TabIndex = 0;
             ModerationButton.Text = "Модерация";
             ModerationButton.UseVisualStyleBackColor = true;
+            // 
+            // MainPanel
+            // 
+            MainPanel.AutoScroll = true;
+            MainPanel.Controls.Add(panel1);
+            MainPanel.Location = new Point(248, 55);
+            MainPanel.Margin = new Padding(4);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Padding = new Padding(4, 24, 4, 4);
+            MainPanel.Size = new Size(616, 465);
+            MainPanel.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(23, 502);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 100);
+            panel1.TabIndex = 0;
+            // 
+            // SearchTextBox
+            // 
+            SearchTextBox.BorderStyle = BorderStyle.None;
+            SearchTextBox.Location = new Point(13, 13);
+            SearchTextBox.MaxLength = 64;
+            SearchTextBox.Name = "SearchTextBox";
+            SearchTextBox.PlaceholderText = "Поиск... (пока что не работает)";
+            SearchTextBox.Size = new Size(567, 16);
+            SearchTextBox.TabIndex = 3;
+            // 
+            // SearchPanel
+            // 
+            SearchPanel.BorderStyle = BorderStyle.FixedSingle;
+            SearchPanel.Controls.Add(SearchTextBox);
+            SearchPanel.Location = new Point(248, 9);
+            SearchPanel.Margin = new Padding(0);
+            SearchPanel.Name = "SearchPanel";
+            SearchPanel.Padding = new Padding(10);
+            SearchPanel.Size = new Size(595, 44);
+            SearchPanel.TabIndex = 5;
+            // 
+            // ProfileImageBox
+            // 
+            ProfileImageBox.BackgroundImageLayout = ImageLayout.None;
+            ProfileImageBox.Cursor = Cursors.Help;
+            ProfileImageBox.Image = (Image)resources.GetObject("ProfileImageBox.Image");
+            ProfileImageBox.Location = new Point(12, 7);
+            ProfileImageBox.Name = "ProfileImageBox";
+            ProfileImageBox.Size = new Size(229, 150);
+            ProfileImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+            ProfileImageBox.TabIndex = 6;
+            ProfileImageBox.TabStop = false;
+            // 
+            // ProfileLabel
+            // 
+            ProfileLabel.Location = new Point(12, 160);
+            ProfileLabel.Name = "ProfileLabel";
+            ProfileLabel.Size = new Size(229, 32);
+            ProfileLabel.TabIndex = 7;
+            ProfileLabel.Text = "[ProfileUsername]";
+            ProfileLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(784, 521);
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(864, 521);
+            Controls.Add(ProfileLabel);
+            Controls.Add(ProfileImageBox);
+            Controls.Add(SearchPanel);
+            Controls.Add(MainPanel);
             Controls.Add(ModerationButton);
             Controls.Add(AddPostButton);
             Controls.Add(LogoutButton);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             FormClosed += MainForm_Closed;
+            Load += MainForm_Load;
+            MainPanel.ResumeLayout(false);
+            SearchPanel.ResumeLayout(false);
+            SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ProfileImageBox).EndInit();
             ResumeLayout(false);
         }
 
@@ -83,5 +163,11 @@
         private Button LogoutButton;
         private Button AddPostButton;
         private Button ModerationButton;
+        private Panel MainPanel;
+        private Panel panel1;
+        private TextBox SearchTextBox;
+        private Panel SearchPanel;
+        private PictureBox ProfileImageBox;
+        private Label ProfileLabel;
     }
 }

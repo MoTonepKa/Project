@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using Project.Forms;
 using Project.Models;
 
@@ -8,7 +9,6 @@ namespace Project
         public LoginForm()
         {
             InitializeComponent();
-            Program.LoadFont(this);
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -33,15 +33,40 @@ namespace Project
 
             if (user != null)
             {
+                Program.User = user;
+
                 MessageBox.Show("Добро пожаловать, " + user.Name);
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
                 Hide();
+
+                if (RememberCheckBox.Checked)
+                {
+                    Properties.Settings.Default.login = user.Email;
+                    Properties.Settings.Default.remeberMe = true;
+                }
+                else
+                {
+                    Properties.Settings.Default.login = "";
+                    Properties.Settings.Default.remeberMe = false;
+                }
+                Properties.Settings.Default.Save();
                 // дальше откроем главное окно
             }
             else
             {
                 MessageBox.Show("Неверный email или пароль");
+            }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            Program.LoadFont(this);
+
+            if (Properties.Settings.Default.remeberMe)
+            {
+                LoginTextBox.Text = Properties.Settings.Default.login;
+                RememberCheckBox.Checked = true;
             }
         }
     }
