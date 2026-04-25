@@ -2,13 +2,14 @@ using System.Drawing.Text;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Project.Data;
-using Project.Forms;
+using Project.Models;
 
 namespace Project
 {
     internal static class Program
     {
         public static Form MainForm = new LoginForm();
+        public static User User;
         
         /// <summary>
         ///  The main entry point for the application.

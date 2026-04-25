@@ -38,11 +38,10 @@
             NameGroupBox = new GroupBox();
             LoginGroupBox = new GroupBox();
             groupBox1 = new GroupBox();
-            UniversityGroupBox = new GroupBox();
+            label1 = new Label();
             NameGroupBox.SuspendLayout();
             LoginGroupBox.SuspendLayout();
             groupBox1.SuspendLayout();
-            UniversityGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // RegisterButton
@@ -61,7 +60,7 @@
             NameTextBox.Location = new Point(13, 22);
             NameTextBox.MaxLength = 32;
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.PlaceholderText = "введите имя (необязательно):";
+            NameTextBox.PlaceholderText = "введите имя (необязательно)";
             NameTextBox.Size = new Size(272, 16);
             NameTextBox.TabIndex = 1;
             // 
@@ -71,7 +70,7 @@
             LoginTextBox.Location = new Point(13, 22);
             LoginTextBox.MaxLength = 32;
             LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.PlaceholderText = "введите логин (обязательно):";
+            LoginTextBox.PlaceholderText = "введите логин (обязательно)";
             LoginTextBox.Size = new Size(272, 16);
             LoginTextBox.TabIndex = 2;
             // 
@@ -83,9 +82,9 @@
             UniversityComboBox.FlatStyle = FlatStyle.System;
             UniversityComboBox.FormattingEnabled = true;
             UniversityComboBox.Items.AddRange(new object[] { "Не учусь", "ТУИТ", "ТГТУ", "ТГЭУ" });
-            UniversityComboBox.Location = new Point(13, 19);
+            UniversityComboBox.Location = new Point(43, 218);
             UniversityComboBox.Name = "UniversityComboBox";
-            UniversityComboBox.Size = new Size(272, 23);
+            UniversityComboBox.Size = new Size(298, 23);
             UniversityComboBox.TabIndex = 3;
             // 
             // PasswordTextBox
@@ -94,7 +93,7 @@
             PasswordTextBox.Location = new Point(13, 22);
             PasswordTextBox.MaxLength = 16;
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.PlaceholderText = "введите пароль (обязательно):";
+            PasswordTextBox.PlaceholderText = "введите пароль (обязательно)";
             PasswordTextBox.Size = new Size(272, 16);
             PasswordTextBox.TabIndex = 5;
             // 
@@ -141,23 +140,23 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Пароль";
             // 
-            // UniversityGroupBox
+            // label1
             // 
-            UniversityGroupBox.Controls.Add(UniversityComboBox);
-            UniversityGroupBox.Location = new Point(43, 199);
-            UniversityGroupBox.Name = "UniversityGroupBox";
-            UniversityGroupBox.Padding = new Padding(10, 2, 10, 10);
-            UniversityGroupBox.Size = new Size(298, 55);
-            UniversityGroupBox.TabIndex = 10;
-            UniversityGroupBox.TabStop = false;
-            UniversityGroupBox.Text = "Университет";
+            label1.AutoSize = true;
+            label1.Location = new Point(48, 196);
+            label1.Margin = new Padding(4);
+            label1.Name = "label1";
+            label1.Size = new Size(76, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Университет";
             // 
             // RegisterForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             ClientSize = new Size(384, 441);
-            Controls.Add(UniversityGroupBox);
+            Controls.Add(label1);
+            Controls.Add(UniversityComboBox);
             Controls.Add(groupBox1);
             Controls.Add(LoginGroupBox);
             Controls.Add(NameGroupBox);
@@ -176,8 +175,8 @@
             LoginGroupBox.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            UniversityGroupBox.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -191,6 +190,6 @@
         private GroupBox NameGroupBox;
         private GroupBox LoginGroupBox;
         private GroupBox groupBox1;
-        private GroupBox UniversityGroupBox;
+        private Label label1;
     }
 }
