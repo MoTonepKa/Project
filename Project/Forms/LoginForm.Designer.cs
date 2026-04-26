@@ -37,7 +37,9 @@ namespace Project
             RegisterButton = new Button();
             LoginGroupBox = new GroupBox();
             PasswordGroupBox = new GroupBox();
+            PasswordShowButton = new Button();
             RememberCheckBox = new CheckBox();
+            TitleBar = new Project.Forms.TitleBar();
             LoginGroupBox.SuspendLayout();
             PasswordGroupBox.SuspendLayout();
             SuspendLayout();
@@ -50,7 +52,7 @@ namespace Project
             LoginTextBox.MaxLength = 32;
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.PlaceholderText = "введите логин";
-            LoginTextBox.Size = new Size(272, 16);
+            LoginTextBox.Size = new Size(288, 16);
             LoginTextBox.TabIndex = 0;
             // 
             // PasswordTextBox
@@ -66,9 +68,9 @@ namespace Project
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(43, 360);
+            LoginButton.Location = new Point(43, 397);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(144, 50);
+            LoginButton.Size = new Size(150, 50);
             LoginButton.TabIndex = 3;
             LoginButton.Text = "Войти";
             LoginButton.UseVisualStyleBackColor = true;
@@ -76,9 +78,9 @@ namespace Project
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(197, 360);
+            RegisterButton.Location = new Point(207, 397);
             RegisterButton.Name = "RegisterButton";
-            RegisterButton.Size = new Size(144, 50);
+            RegisterButton.Size = new Size(150, 50);
             RegisterButton.TabIndex = 4;
             RegisterButton.Text = "Регистрация";
             RegisterButton.UseVisualStyleBackColor = true;
@@ -87,46 +89,73 @@ namespace Project
             // LoginGroupBox
             // 
             LoginGroupBox.Controls.Add(LoginTextBox);
-            LoginGroupBox.Location = new Point(43, 204);
+            LoginGroupBox.Location = new Point(43, 241);
             LoginGroupBox.Name = "LoginGroupBox";
             LoginGroupBox.Padding = new Padding(10, 2, 10, 10);
-            LoginGroupBox.Size = new Size(298, 50);
+            LoginGroupBox.Size = new Size(314, 50);
             LoginGroupBox.TabIndex = 4;
             LoginGroupBox.TabStop = false;
             LoginGroupBox.Text = "Логин";
             // 
             // PasswordGroupBox
             // 
+            PasswordGroupBox.Controls.Add(PasswordShowButton);
             PasswordGroupBox.Controls.Add(PasswordTextBox);
-            PasswordGroupBox.Location = new Point(43, 260);
+            PasswordGroupBox.Location = new Point(43, 297);
             PasswordGroupBox.Name = "PasswordGroupBox";
             PasswordGroupBox.Padding = new Padding(10, 2, 10, 10);
-            PasswordGroupBox.Size = new Size(298, 50);
+            PasswordGroupBox.Size = new Size(314, 50);
             PasswordGroupBox.TabIndex = 5;
             PasswordGroupBox.TabStop = false;
             PasswordGroupBox.Text = "Пароль";
             // 
+            // PasswordShowButton
+            // 
+            PasswordShowButton.BackgroundImage = Properties.Resources.eye;
+            PasswordShowButton.BackgroundImageLayout = ImageLayout.Center;
+            PasswordShowButton.FlatAppearance.BorderSize = 0;
+            PasswordShowButton.FlatStyle = FlatStyle.Flat;
+            PasswordShowButton.Location = new Point(283, 18);
+            PasswordShowButton.Name = "PasswordShowButton";
+            PasswordShowButton.Size = new Size(20, 20);
+            PasswordShowButton.TabIndex = 2;
+            PasswordShowButton.UseVisualStyleBackColor = true;
+            PasswordShowButton.MouseDown += PasswordShowButton_MouseDown;
+            PasswordShowButton.MouseUp += PasswordShowButton_MouseUp;
+            // 
             // RememberCheckBox
             // 
             RememberCheckBox.FlatStyle = FlatStyle.System;
-            RememberCheckBox.Location = new Point(56, 316);
+            RememberCheckBox.Location = new Point(56, 353);
             RememberCheckBox.Name = "RememberCheckBox";
-            RememberCheckBox.Size = new Size(272, 30);
+            RememberCheckBox.Size = new Size(288, 30);
             RememberCheckBox.TabIndex = 2;
             RememberCheckBox.Text = " Запомнить меня";
             RememberCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TitleBar
+            // 
+            TitleBar.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            TitleBar.BackColor = Color.DarkGray;
+            TitleBar.Location = new Point(0, 0);
+            TitleBar.Name = "TitleBar";
+            TitleBar.Size = new Size(400, 32);
+            TitleBar.TabIndex = 6;
+            TitleBar.Title = "Вход в систему";
             // 
             // LoginForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(384, 441);
+            ClientSize = new Size(400, 480);
+            Controls.Add(TitleBar);
             Controls.Add(RememberCheckBox);
             Controls.Add(PasswordGroupBox);
             Controls.Add(LoginGroupBox);
             Controls.Add(RegisterButton);
             Controls.Add(LoginButton);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "LoginForm";
             Padding = new Padding(40, 30, 40, 30);
@@ -149,5 +178,7 @@ namespace Project
         private GroupBox LoginGroupBox;
         private GroupBox PasswordGroupBox;
         private CheckBox RememberCheckBox;
+        private Forms.TitleBar TitleBar;
+        private Button PasswordShowButton;
     }
 }

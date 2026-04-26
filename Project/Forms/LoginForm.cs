@@ -69,5 +69,8 @@ namespace Project
                 RememberCheckBox.Checked = true;
             }
         }
+
+        private void PasswordShowButton_MouseDown(object sender, MouseEventArgs e) => PasswordTextBox.UseSystemPasswordChar = false;
+        private void PasswordShowButton_MouseUp(object sender, MouseEventArgs e) => PasswordTextBox.UseSystemPasswordChar = true;
     }
 }
