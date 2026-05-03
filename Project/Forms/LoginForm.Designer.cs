@@ -111,13 +111,13 @@ namespace Project
             // 
             // PasswordShowButton
             // 
-            PasswordShowButton.BackgroundImage = Properties.Resources.eye;
+            PasswordShowButton.BackgroundImage = Properties.Resources.invisible;
             PasswordShowButton.BackgroundImageLayout = ImageLayout.Center;
             PasswordShowButton.FlatAppearance.BorderSize = 0;
             PasswordShowButton.FlatStyle = FlatStyle.Flat;
-            PasswordShowButton.Location = new Point(283, 18);
+            PasswordShowButton.Location = new Point(274, 9);
             PasswordShowButton.Name = "PasswordShowButton";
-            PasswordShowButton.Size = new Size(20, 20);
+            PasswordShowButton.Size = new Size(38, 38);
             PasswordShowButton.TabIndex = 2;
             PasswordShowButton.UseVisualStyleBackColor = true;
             PasswordShowButton.MouseDown += PasswordShowButton_MouseDown;

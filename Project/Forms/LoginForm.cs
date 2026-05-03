@@ -35,7 +35,7 @@ namespace Project
             {
                 Program.User = user;
 
-                MessageBox.Show("Добро пожаловать, " + user.Name);
+                MessageBox.Show("Вход выполнен!\n" + "Добро пожаловать, " + user.Name);
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
                 Hide();
@@ -70,7 +70,15 @@ namespace Project
             }
         }
 
-        private void PasswordShowButton_MouseDown(object sender, MouseEventArgs e) => PasswordTextBox.UseSystemPasswordChar = false;
-        private void PasswordShowButton_MouseUp(object sender, MouseEventArgs e) => PasswordTextBox.UseSystemPasswordChar = true;
+        private void PasswordShowButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            PasswordShowButton.BackgroundImage = Properties.Resources.visible;
+            PasswordTextBox.UseSystemPasswordChar = false;
+        }
+        private void PasswordShowButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            PasswordShowButton.BackgroundImage = Properties.Resources.invisible;
+            PasswordTextBox.UseSystemPasswordChar = true;
+        }
     }
 }
