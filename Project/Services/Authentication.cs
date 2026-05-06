@@ -13,7 +13,7 @@ namespace Project.Models
     {
         public User Login(string email, string password)
         {
-            using (var connection = Database.GetConnection())
+            using (var connection = StudentDB.GetConnection())
             {
                 connection.Open();
 

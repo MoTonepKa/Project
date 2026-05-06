@@ -11,7 +11,7 @@ namespace Project.Services
     {
         public void Register(string name, string username, string email, string university, string password)
         {
-            using (var connection = Database.GetConnection())
+            using (var connection = StudentDB.GetConnection())
             {
                 connection.Open();
 
