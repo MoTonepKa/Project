@@ -89,9 +89,11 @@
             Controls.Add(TitleLabel);
             Controls.Add(MinimizeButton);
             Controls.Add(CloseButton);
+            Margin = new Padding(0);
             Name = "TitleBar";
             Size = new Size(200, 32);
             MouseDown += TitleBar_MouseDown;
+            Load += TitleBar_Load;
             ResumeLayout(false);
             PerformLayout();
         }

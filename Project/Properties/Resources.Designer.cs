@@ -111,6 +111,16 @@ namespace Project.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] MOLOKO {
+            get {
+                object obj = ResourceManager.GetObject("MOLOKO", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap remove {
@@ -126,6 +136,16 @@ namespace Project.Properties {
         internal static byte[] RobotoSlab_Regular {
             get {
                 object obj = ResourceManager.GetObject("RobotoSlab_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] SpriteGraffiti {
+            get {
+                object obj = ResourceManager.GetObject("SpriteGraffiti", resourceCulture);
                 return ((byte[])(obj));
             }
         }

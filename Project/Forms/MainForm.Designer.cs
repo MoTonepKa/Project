@@ -32,20 +32,22 @@
             LogoutButton = new Button();
             AddPostButton = new Button();
             ModerationButton = new Button();
-            SearchTextBox = new TextBox();
-            SearchPanel = new Panel();
             ProfileImageBox = new PictureBox();
             ProfileLabel = new Label();
             pnlEvents = new FlowLayoutPanel();
-            SearchPanel.SuspendLayout();
+            SidebarFlowLayoutPanel = new FlowLayoutPanel();
+            ProfilePanel = new Panel();
+            titleBar2 = new TitleBar();
             ((System.ComponentModel.ISupportInitialize)ProfileImageBox).BeginInit();
+            SidebarFlowLayoutPanel.SuspendLayout();
+            ProfilePanel.SuspendLayout();
             SuspendLayout();
             // 
             // LogoutButton
             // 
-            LogoutButton.Location = new Point(26, 459);
+            LogoutButton.Location = new Point(11, 219);
             LogoutButton.Name = "LogoutButton";
-            LogoutButton.Size = new Size(200, 50);
+            LogoutButton.Size = new Size(197, 50);
             LogoutButton.TabIndex = 2;
             LogoutButton.Text = "Выйти";
             LogoutButton.UseVisualStyleBackColor = true;
@@ -53,9 +55,9 @@
             // 
             // AddPostButton
             // 
-            AddPostButton.Location = new Point(26, 403);
+            AddPostButton.Location = new Point(11, 163);
             AddPostButton.Name = "AddPostButton";
-            AddPostButton.Size = new Size(200, 50);
+            AddPostButton.Size = new Size(197, 50);
             AddPostButton.TabIndex = 1;
             AddPostButton.Text = "Предложить событие";
             AddPostButton.UseVisualStyleBackColor = true;
@@ -64,61 +66,77 @@
             // 
             ModerationButton.BackColor = SystemColors.Window;
             ModerationButton.FlatStyle = FlatStyle.System;
-            ModerationButton.Location = new Point(26, 347);
+            ModerationButton.Location = new Point(11, 107);
             ModerationButton.Name = "ModerationButton";
-            ModerationButton.Size = new Size(200, 50);
+            ModerationButton.Size = new Size(197, 50);
             ModerationButton.TabIndex = 0;
             ModerationButton.Text = "Модерация";
             ModerationButton.UseVisualStyleBackColor = false;
             // 
-            // SearchTextBox
-            // 
-            SearchTextBox.BorderStyle = BorderStyle.None;
-            SearchTextBox.Location = new Point(13, 13);
-            SearchTextBox.MaxLength = 64;
-            SearchTextBox.Name = "SearchTextBox";
-            SearchTextBox.PlaceholderText = "Поиск... (пока что не работает)";
-            SearchTextBox.Size = new Size(567, 16);
-            SearchTextBox.TabIndex = 3;
-            // 
-            // SearchPanel
-            // 
-            SearchPanel.BorderStyle = BorderStyle.FixedSingle;
-            SearchPanel.Controls.Add(SearchTextBox);
-            SearchPanel.Location = new Point(248, 9);
-            SearchPanel.Margin = new Padding(0);
-            SearchPanel.Name = "SearchPanel";
-            SearchPanel.Padding = new Padding(10);
-            SearchPanel.Size = new Size(595, 44);
-            SearchPanel.TabIndex = 5;
-            // 
             // ProfileImageBox
             // 
-            ProfileImageBox.BackgroundImageLayout = ImageLayout.None;
+            ProfileImageBox.BackgroundImageLayout = ImageLayout.Center;
             ProfileImageBox.Cursor = Cursors.Help;
             ProfileImageBox.Image = (Image)resources.GetObject("ProfileImageBox.Image");
-            ProfileImageBox.Location = new Point(12, 7);
+            ProfileImageBox.Location = new Point(13, 13);
             ProfileImageBox.Name = "ProfileImageBox";
-            ProfileImageBox.Size = new Size(229, 150);
+            ProfileImageBox.Size = new Size(64, 64);
             ProfileImageBox.SizeMode = PictureBoxSizeMode.Zoom;
             ProfileImageBox.TabIndex = 6;
             ProfileImageBox.TabStop = false;
             // 
             // ProfileLabel
             // 
-            ProfileLabel.Location = new Point(12, 160);
+            ProfileLabel.Location = new Point(83, 13);
             ProfileLabel.Name = "ProfileLabel";
-            ProfileLabel.Size = new Size(229, 32);
+            ProfileLabel.Size = new Size(101, 64);
             ProfileLabel.TabIndex = 7;
-            ProfileLabel.Text = "[ProfileUsername]";
-            ProfileLabel.TextAlign = ContentAlignment.MiddleCenter;
+            ProfileLabel.Text = "[Username]";
+            ProfileLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlEvents
             // 
-            pnlEvents.Location = new Point(248, 57);
+            pnlEvents.AutoScroll = true;
+            pnlEvents.BackColor = SystemColors.MenuBar;
+            pnlEvents.Location = new Point(240, 35);
             pnlEvents.Name = "pnlEvents";
-            pnlEvents.Size = new Size(595, 452);
+            pnlEvents.Padding = new Padding(32, 8, 32, 8);
+            pnlEvents.Size = new Size(628, 513);
             pnlEvents.TabIndex = 8;
+            // 
+            // SidebarFlowLayoutPanel
+            // 
+            SidebarFlowLayoutPanel.Controls.Add(ProfilePanel);
+            SidebarFlowLayoutPanel.Controls.Add(ModerationButton);
+            SidebarFlowLayoutPanel.Controls.Add(AddPostButton);
+            SidebarFlowLayoutPanel.Controls.Add(LogoutButton);
+            SidebarFlowLayoutPanel.Location = new Point(0, 32);
+            SidebarFlowLayoutPanel.Margin = new Padding(0);
+            SidebarFlowLayoutPanel.Name = "SidebarFlowLayoutPanel";
+            SidebarFlowLayoutPanel.Padding = new Padding(8);
+            SidebarFlowLayoutPanel.Size = new Size(220, 528);
+            SidebarFlowLayoutPanel.TabIndex = 10;
+            // 
+            // ProfilePanel
+            // 
+            ProfilePanel.Controls.Add(ProfileImageBox);
+            ProfilePanel.Controls.Add(ProfileLabel);
+            ProfilePanel.Location = new Point(11, 11);
+            ProfilePanel.Name = "ProfilePanel";
+            ProfilePanel.Padding = new Padding(10);
+            ProfilePanel.Size = new Size(197, 90);
+            ProfilePanel.TabIndex = 0;
+            // 
+            // titleBar2
+            // 
+            titleBar2.AutoValidate = AutoValidate.EnablePreventFocusChange;
+            titleBar2.BackColor = Color.DarkGray;
+            titleBar2.Location = new Point(0, 0);
+            titleBar2.Margin = new Padding(0);
+            titleBar2.Name = "titleBar2";
+            titleBar2.Size = new Size(880, 32);
+            titleBar2.TabIndex = 0;
+            titleBar2.Title = "MainForm";
             // 
             // MainForm
             // 
@@ -126,25 +144,21 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             CausesValidation = false;
-            ClientSize = new Size(864, 521);
+            ClientSize = new Size(880, 560);
+            Controls.Add(titleBar2);
+            Controls.Add(SidebarFlowLayoutPanel);
             Controls.Add(pnlEvents);
-            Controls.Add(ProfileLabel);
-            Controls.Add(ProfileImageBox);
-            Controls.Add(SearchPanel);
-            Controls.Add(ModerationButton);
-            Controls.Add(AddPostButton);
-            Controls.Add(LogoutButton);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
+            Padding = new Padding(0, 32, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             FormClosed += MainForm_Closed;
-            Load += MainForm_Load;
-            SearchPanel.ResumeLayout(false);
-            SearchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ProfileImageBox).EndInit();
+            SidebarFlowLayoutPanel.ResumeLayout(false);
+            ProfilePanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -153,10 +167,12 @@
         private Button LogoutButton;
         private Button AddPostButton;
         private Button ModerationButton;
-        private TextBox SearchTextBox;
-        private Panel SearchPanel;
         private PictureBox ProfileImageBox;
         private Label ProfileLabel;
         private FlowLayoutPanel pnlEvents;
+        private TitleBar titleBar1;
+        private FlowLayoutPanel SidebarFlowLayoutPanel;
+        private Panel ProfilePanel;
+        private TitleBar titleBar2;
     }
 }

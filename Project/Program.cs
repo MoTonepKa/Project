@@ -8,9 +8,9 @@ namespace Project
 {
     internal static class Program
     {
-        public static Form MainForm = new LoginForm();
+        public static Form MainForm = null;
         public static User User;
-        
+        public static PrivateFontCollection MyFontCollection = new PrivateFontCollection();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -19,22 +19,28 @@ namespace Project
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            
+
             ApplicationConfiguration.Initialize();
+<<<<<<< Updated upstream
             Database.Initialize();
+=======
+            StudentDB.Initialize();
+
+            LoadFont();
+            MainForm = new LoginForm();
+>>>>>>> Stashed changes
             Application.Run(MainForm);
+            
         }
 
-        public static void LoadFont(Form form)
+        public static void LoadFont()
         {
-            PrivateFontCollection MyFontCollection = new PrivateFontCollection();
-            string fontPath = Path.Combine(Application.StartupPath, "Resources", "RobotoSlab-Regular.ttf");
-
-            if (File.Exists(fontPath))
-                MyFontCollection.AddFontFile(fontPath);
-            else
-                MessageBox.Show("Файл шрифта не найден по пути: " + fontPath);
-
-            form.Font = new Font(MyFontCollection.Families[0], 9, FontStyle.Regular);
+            string fontPath = Path.Combine(Application.StartupPath, "Resources", "SpriteGraffiti-Regular.ttf");
+            MyFontCollection.AddFontFile(fontPath);
+            fontPath = Path.Combine(Application.StartupPath, "Resources", "SpriteGraffiti-Shadow.ttf");
+            MyFontCollection.AddFontFile(fontPath);
+            //form.Font = new Font(MyFontCollection.Families[0], 9, FontStyle.Regular);
         }
     }
 }

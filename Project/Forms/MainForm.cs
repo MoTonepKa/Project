@@ -1,14 +1,15 @@
-﻿using Project.Components;
-using Project.Data;
-using Project.Models;
-using Project.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Text;
 using System.Windows.Forms;
+using Project.Components;
+using Project.Data;
+using Project.Models;
+using Project.Services;
 
 namespace Project.Forms
 {
@@ -29,8 +30,8 @@ namespace Project.Forms
             pnlEvents.AutoScroll = true;
 
             LoadPosts();
-            Program.LoadFont(this);
-            ProfileLabel.Text = Program.User.Username;
+            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
+            ProfileLabel.Text = Program.User.Email + "\n" + "(" + Program.User.Name + ")";
         }
         private void LoadPosts()
         {
@@ -43,7 +44,7 @@ namespace Project.Forms
                 EventPost post = new EventPost(ev);
 
                 // Растягиваем карточку по ширине панели
-                post.Width = pnlEvents.ClientSize.Width - 25;
+                post.Width = pnlEvents.ClientSize.Width - (pnlEvents.Padding.Left + pnlEvents.Padding.Right);
 
                 // Добавляем в ленту
                 pnlEvents.Controls.Add(post);
@@ -52,16 +53,13 @@ namespace Project.Forms
         private void LogoutButton_Click(object sender, EventArgs e)
         {
             Program.MainForm.Show();
+
             Close();
         }
 
         private void MainForm_Closed(object sender, FormClosedEventArgs e)
         {
             if (!Program.MainForm.Visible) Program.MainForm.Close();
-        }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Project.Forms
         public RegisterForm()
         {
             InitializeComponent();
-            Program.LoadFont(this);
+            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
         }
 
         private Registration _authService = new Registration();

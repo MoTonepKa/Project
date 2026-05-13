@@ -47,7 +47,7 @@
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(203, 398);
+            RegisterButton.Location = new Point(203, 418);
             RegisterButton.Name = "RegisterButton";
             RegisterButton.Size = new Size(154, 50);
             RegisterButton.TabIndex = 0;
@@ -83,7 +83,7 @@
             UniversityComboBox.FlatStyle = FlatStyle.System;
             UniversityComboBox.FormattingEnabled = true;
             UniversityComboBox.Items.AddRange(new object[] { "Не учусь", "ТУИТ", "ТГТУ", "ТГЭУ" });
-            UniversityComboBox.Location = new Point(43, 256);
+            UniversityComboBox.Location = new Point(43, 276);
             UniversityComboBox.Name = "UniversityComboBox";
             UniversityComboBox.Size = new Size(314, 23);
             UniversityComboBox.TabIndex = 3;
@@ -100,7 +100,7 @@
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(43, 398);
+            LoginButton.Location = new Point(43, 418);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(154, 50);
             LoginButton.TabIndex = 6;
@@ -111,7 +111,7 @@
             // NameGroupBox
             // 
             NameGroupBox.Controls.Add(NameTextBox);
-            NameGroupBox.Location = new Point(43, 92);
+            NameGroupBox.Location = new Point(43, 112);
             NameGroupBox.Name = "NameGroupBox";
             NameGroupBox.Padding = new Padding(10, 2, 10, 10);
             NameGroupBox.Size = new Size(314, 50);
@@ -122,7 +122,7 @@
             // LoginGroupBox
             // 
             LoginGroupBox.Controls.Add(LoginTextBox);
-            LoginGroupBox.Location = new Point(43, 148);
+            LoginGroupBox.Location = new Point(43, 168);
             LoginGroupBox.Name = "LoginGroupBox";
             LoginGroupBox.Padding = new Padding(10, 2, 10, 10);
             LoginGroupBox.Size = new Size(314, 50);
@@ -133,7 +133,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(PasswordTextBox);
-            groupBox1.Location = new Point(43, 298);
+            groupBox1.Location = new Point(43, 318);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(10, 2, 10, 10);
             groupBox1.Size = new Size(314, 50);
@@ -144,7 +144,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(48, 234);
+            label1.Location = new Point(48, 254);
             label1.Margin = new Padding(4);
             label1.Name = "label1";
             label1.Size = new Size(76, 15);
@@ -156,6 +156,7 @@
             TitleBar.AutoValidate = AutoValidate.EnablePreventFocusChange;
             TitleBar.BackColor = Color.DarkGray;
             TitleBar.Location = new Point(0, 0);
+            TitleBar.Margin = new Padding(0);
             TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(400, 32);
             TitleBar.TabIndex = 11;
@@ -165,7 +166,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(400, 480);
+            ClientSize = new Size(400, 500);
             Controls.Add(TitleBar);
             Controls.Add(label1);
             Controls.Add(UniversityComboBox);

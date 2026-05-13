@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventPost));
             pbImage = new PictureBox();
             lblTitle = new Label();
             lblDesc = new Label();
@@ -38,34 +39,36 @@
             // 
             // pbImage
             // 
-            pbImage.Location = new Point(12, 29);
+            pbImage.BackgroundImage = (Image)resources.GetObject("pbImage.BackgroundImage");
+            pbImage.BackgroundImageLayout = ImageLayout.Zoom;
+            pbImage.Dock = DockStyle.Top;
+            pbImage.Location = new Point(8, 8);
             pbImage.Name = "pbImage";
-            pbImage.Size = new Size(350, 170);
+            pbImage.Size = new Size(364, 170);
             pbImage.TabIndex = 0;
             pbImage.TabStop = false;
             // 
             // lblTitle
             // 
-            lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(9, 211);
+            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblTitle.Location = new Point(8, 180);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(65, 15);
+            lblTitle.Size = new Size(364, 20);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Заголовок";
             // 
             // lblDesc
             // 
-            lblDesc.AutoSize = true;
-            lblDesc.Location = new Point(9, 235);
+            lblDesc.Location = new Point(8, 210);
             lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(62, 15);
+            lblDesc.Size = new Size(364, 65);
             lblDesc.TabIndex = 2;
             lblDesc.Text = "Описание";
             // 
             // lblAuthor
             // 
             lblAuthor.AutoSize = true;
-            lblAuthor.Location = new Point(12, 11);
+            lblAuthor.Location = new Point(8, 288);
             lblAuthor.Name = "lblAuthor";
             lblAuthor.Size = new Size(40, 15);
             lblAuthor.TabIndex = 3;
@@ -73,24 +76,28 @@
             // 
             // lblDate
             // 
-            lblDate.AutoSize = true;
-            lblDate.Location = new Point(324, 11);
+            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblDate.Location = new Point(282, 288);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(32, 15);
+            lblDate.Size = new Size(90, 16);
             lblDate.TabIndex = 4;
             lblDate.Text = "Дата";
+            lblDate.TextAlign = ContentAlignment.TopRight;
             // 
             // EventPost
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Window;
             Controls.Add(lblDate);
             Controls.Add(lblAuthor);
             Controls.Add(lblDesc);
             Controls.Add(lblTitle);
             Controls.Add(pbImage);
+            Margin = new Padding(0, 16, 0, 0);
             Name = "EventPost";
-            Size = new Size(379, 311);
+            Padding = new Padding(8);
+            Size = new Size(380, 312);
             ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
             ResumeLayout(false);
             PerformLayout();

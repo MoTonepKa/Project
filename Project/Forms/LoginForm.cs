@@ -9,6 +9,7 @@ namespace Project
         public LoginForm()
         {
             InitializeComponent();
+            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace Project
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            Program.LoadFont(this);
+            //Program.LoadFont(this);
 
             if (Properties.Settings.Default.remeberMe)
             {

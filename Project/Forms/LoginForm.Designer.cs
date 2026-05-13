@@ -46,7 +46,6 @@ namespace Project
             // 
             // LoginTextBox
             // 
-            LoginTextBox.BackColor = SystemColors.Window;
             LoginTextBox.BorderStyle = BorderStyle.None;
             LoginTextBox.Location = new Point(13, 21);
             LoginTextBox.MaxLength = 32;
@@ -68,7 +67,7 @@ namespace Project
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(43, 397);
+            LoginButton.Location = new Point(43, 417);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(150, 50);
             LoginButton.TabIndex = 3;
@@ -78,7 +77,7 @@ namespace Project
             // 
             // RegisterButton
             // 
-            RegisterButton.Location = new Point(207, 397);
+            RegisterButton.Location = new Point(207, 417);
             RegisterButton.Name = "RegisterButton";
             RegisterButton.Size = new Size(150, 50);
             RegisterButton.TabIndex = 4;
@@ -89,7 +88,7 @@ namespace Project
             // LoginGroupBox
             // 
             LoginGroupBox.Controls.Add(LoginTextBox);
-            LoginGroupBox.Location = new Point(43, 241);
+            LoginGroupBox.Location = new Point(43, 261);
             LoginGroupBox.Name = "LoginGroupBox";
             LoginGroupBox.Padding = new Padding(10, 2, 10, 10);
             LoginGroupBox.Size = new Size(314, 50);
@@ -101,7 +100,7 @@ namespace Project
             // 
             PasswordGroupBox.Controls.Add(PasswordShowButton);
             PasswordGroupBox.Controls.Add(PasswordTextBox);
-            PasswordGroupBox.Location = new Point(43, 297);
+            PasswordGroupBox.Location = new Point(43, 317);
             PasswordGroupBox.Name = "PasswordGroupBox";
             PasswordGroupBox.Padding = new Padding(10, 2, 10, 10);
             PasswordGroupBox.Size = new Size(314, 50);
@@ -126,7 +125,7 @@ namespace Project
             // RememberCheckBox
             // 
             RememberCheckBox.FlatStyle = FlatStyle.System;
-            RememberCheckBox.Location = new Point(56, 353);
+            RememberCheckBox.Location = new Point(56, 373);
             RememberCheckBox.Name = "RememberCheckBox";
             RememberCheckBox.Size = new Size(288, 30);
             RememberCheckBox.TabIndex = 2;
@@ -138,6 +137,7 @@ namespace Project
             TitleBar.AutoValidate = AutoValidate.EnablePreventFocusChange;
             TitleBar.BackColor = Color.DarkGray;
             TitleBar.Location = new Point(0, 0);
+            TitleBar.Margin = new Padding(0);
             TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(400, 32);
             TitleBar.TabIndex = 6;
@@ -147,13 +147,14 @@ namespace Project
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(400, 480);
+            ClientSize = new Size(400, 500);
             Controls.Add(TitleBar);
             Controls.Add(RememberCheckBox);
             Controls.Add(PasswordGroupBox);
             Controls.Add(LoginGroupBox);
             Controls.Add(RegisterButton);
             Controls.Add(LoginButton);
+            DoubleBuffered = true;
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
