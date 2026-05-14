@@ -9,6 +9,7 @@ namespace Project
         public LoginForm()
         {
             InitializeComponent();
+            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace Project
                     Properties.Settings.Default.remeberMe = false;
                 }
                 Properties.Settings.Default.Save();
+                // дальше откроем главное окно
             }
             else
             {
@@ -60,15 +62,7 @@ namespace Project
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            DrawInterface.LoadFont(this);
-            DrawInterface.DrawBorderLine(this);
-            DrawInterface.DrawRectShadow(LoginButton, this);
-            DrawInterface.DrawRectShadow(RegisterButton, this);
-
-            DrawInterface.DrawBorderLine(LoginPanel);
-            DrawInterface.DrawBorderLine(PasswordPanel);
-            DrawInterface.DrawRectShadow(LoginPanel, this);
-            DrawInterface.DrawRectShadow(PasswordPanel, this);
+            //Program.LoadFont(this);
 
             if (Properties.Settings.Default.remeberMe)
             {

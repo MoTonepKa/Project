@@ -8,6 +8,7 @@ namespace Project.Forms
         public RegisterForm()
         {
             InitializeComponent();
+            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
         }
 
         private Registration _authService = new Registration();
@@ -58,24 +59,6 @@ namespace Project.Forms
         private void RegisterForm_Closed(object sender, FormClosedEventArgs e)
         {
             Program.MainForm.Show();
-        }
-
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-            DrawInterface.LoadFont(this);
-            DrawInterface.DrawBorderLine(this);
-            DrawInterface.DrawRectShadow(LoginButton, this);
-            DrawInterface.DrawRectShadow(RegisterButton, this);
-
-            DrawInterface.DrawBorderLine(LoginPanel);
-            DrawInterface.DrawBorderLine(PasswordPanel);
-            DrawInterface.DrawBorderLine(UniversityPanel);
-            DrawInterface.DrawBorderLine(NamePanel);
-
-            DrawInterface.DrawRectShadow(LoginPanel, this);
-            DrawInterface.DrawRectShadow(PasswordPanel, this);
-            DrawInterface.DrawRectShadow(UniversityPanel, this);
-            DrawInterface.DrawRectShadow(NamePanel, this);
         }
     }
 }

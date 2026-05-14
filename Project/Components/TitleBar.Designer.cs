@@ -39,15 +39,15 @@
             MinimizeButton.BackColor = Color.Transparent;
             MinimizeButton.BackgroundImage = Properties.Resources.remove;
             MinimizeButton.BackgroundImageLayout = ImageLayout.Center;
+            MinimizeButton.FlatAppearance.BorderSize = 0;
             MinimizeButton.FlatAppearance.MouseDownBackColor = Color.Silver;
             MinimizeButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
             MinimizeButton.FlatStyle = FlatStyle.Flat;
-            MinimizeButton.Location = new Point(108, 0);
+            MinimizeButton.Location = new Point(104, 0);
             MinimizeButton.Margin = new Padding(0);
             MinimizeButton.Name = "MinimizeButton";
             MinimizeButton.Size = new Size(48, 32);
             MinimizeButton.TabIndex = 11;
-            MinimizeButton.TabStop = false;
             MinimizeButton.UseVisualStyleBackColor = false;
             MinimizeButton.Click += MinimizeButton_Click;
             // 
@@ -57,15 +57,15 @@
             CloseButton.BackColor = Color.Transparent;
             CloseButton.BackgroundImage = Properties.Resources.close;
             CloseButton.BackgroundImageLayout = ImageLayout.Center;
+            CloseButton.FlatAppearance.BorderSize = 0;
             CloseButton.FlatAppearance.MouseDownBackColor = Color.Silver;
             CloseButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
             CloseButton.FlatStyle = FlatStyle.Flat;
-            CloseButton.Location = new Point(153, 0);
+            CloseButton.Location = new Point(152, 0);
             CloseButton.Margin = new Padding(0);
             CloseButton.Name = "CloseButton";
             CloseButton.Size = new Size(48, 32);
             CloseButton.TabIndex = 10;
-            CloseButton.TabStop = false;
             CloseButton.UseVisualStyleBackColor = false;
             CloseButton.Click += CloseButton_Click;
             // 
@@ -92,7 +92,6 @@
             Margin = new Padding(0);
             Name = "TitleBar";
             Size = new Size(200, 32);
-            Load += TitleBar_Load;
             MouseDown += TitleBar_MouseDown;
             Load += TitleBar_Load;
             ResumeLayout(false);
