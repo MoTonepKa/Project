@@ -1,59 +1,47 @@
-﻿using Project.Services;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+using Project.Services;
 
 namespace Project.Forms
 {
     public partial class RegisterForm : Form
     {
+        private readonly Registration _registrationService = new Registration();
 
         public RegisterForm()
         {
             InitializeComponent();
+            // Устанавливаем шрифт из твоей коллекции
             Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
         }
 
-        private Registration _authService = new Registration();
-
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NameTextBox.Text) || string.IsNullOrWhiteSpace(LoginTextBox.Text) || string.IsNullOrWhiteSpace(PasswordTextBox.Text) || UniversityComboBox.SelectedItem == null)
-            {
-                MessageBox.Show("Заполните все обязательные поля!");
-                return;
-            }
-            else if (PasswordTextBox.Text.Length < 8)
-            {
-                MessageBox.Show("Пароль должен состоять не менее 8 символов!");
-                return;
-            }
-
-            string name = string.IsNullOrWhiteSpace(NameTextBox.Text)
-                ? "Аноним"
-                : NameTextBox.Text;
-
-            string password = PasswordTextBox.Text;
-
             try
             {
-                _authService.Register(
-                    name,
+                // Просто передаем данные в сервис. 
+                // Сервис сам проверит их и, если что-то не так, упадет в блок catch.
+                _registrationService.Register(
                     NameTextBox.Text,
                     LoginTextBox.Text,
-                    UniversityComboBox.SelectedItem.ToString(),
-                    password
+                    UniversityComboBox.SelectedItem?.ToString(),
+                    PasswordTextBox.Text
                 );
 
-                MessageBox.Show("Регистрация успешна!");
-                Close();
+                MessageBox.Show("Регистрация успешна!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка регистрации: " + ex.Message);
+                // Показываем пользователю сообщение об ошибке, которое пришло из сервиса
+                MessageBox.Show(ex.Message, "Ошибка регистрации", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void RegisterForm_Closed(object sender, FormClosedEventArgs e)

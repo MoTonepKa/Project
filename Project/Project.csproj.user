@@ -8,6 +8,9 @@
     <Compile Update="Components\TitleBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Forms\CreateEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

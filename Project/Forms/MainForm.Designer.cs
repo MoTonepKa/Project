@@ -61,6 +61,7 @@
             AddPostButton.TabIndex = 1;
             AddPostButton.Text = "Предложить событие";
             AddPostButton.UseVisualStyleBackColor = true;
+            AddPostButton.Click += AddPostButton_Click;
             // 
             // ModerationButton
             // 

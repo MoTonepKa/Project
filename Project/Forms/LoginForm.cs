@@ -1,69 +1,80 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using Project.Forms;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 using Project.Models;
+using Project.Services;
+using Project.Forms; // Добавили, чтобы видеть RegisterForm и MainForm
 
-namespace Project
+namespace Project // Исправили: теперь совпадает с Designer.cs
 {
     public partial class LoginForm : Form
     {
+        private readonly Authentication _authService = new Authentication();
+
         public LoginForm()
         {
             InitializeComponent();
-            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
+
+            // Проверяем, загружен ли шрифт в Program
+            if (Program.MyFontCollection.Families.Length > 0)
+            {
+                Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
+            }
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Пытаемся войти через сервис
+                var user = _authService.Login(LoginTextBox.Text, PasswordTextBox.Text);
+
+                // Если данные верны, сохраняем пользователя в глобальную переменную
+                Program.User = user;
+
+                // Сохраняем настройки "Запомнить меня"
+                SaveLoginSettings(user.Login);
+
+                MessageBox.Show($"Добро пожаловать, {user.Name}!", "Вход выполнен", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                // Выводим ошибку (например, "Неверный логин или пароль")
+                MessageBox.Show(ex.Message, "Ошибка входа", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveLoginSettings(string login)
+        {
+            if (RememberCheckBox.Checked)
+            {
+                Properties.Settings.Default.login = login;
+                Properties.Settings.Default.remeberMe = true;
+            }
+            else
+            {
+                Properties.Settings.Default.login = "";
+                Properties.Settings.Default.remeberMe = false;
+            }
+            Properties.Settings.Default.Save();
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            Hide();
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.ShowDialog(); // форма открывается модально (поверх основной формы)
-        }
-        private Authentication _auth = new Authentication();
-        private void LoginButton_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(LoginTextBox.Text) || string.IsNullOrWhiteSpace(PasswordTextBox.Text))
+            this.Hide();
+            // Используем полное имя или убеждаемся, что RegisterForm в Project.Forms
+            using (RegisterForm registerForm = new RegisterForm())
             {
-                MessageBox.Show("Введите email и пароль");
-                return;
-            }
-
-            var user = _auth.Login(
-                LoginTextBox.Text,
-                PasswordTextBox.Text
-            );
-
-            if (user != null)
-            {
-                Program.User = user;
-
-                MessageBox.Show("Вход выполнен!\n" + "Добро пожаловать, " + user.Name);
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
-                Hide();
-
-                if (RememberCheckBox.Checked)
-                {
-                    Properties.Settings.Default.login = user.Email;
-                    Properties.Settings.Default.remeberMe = true;
-                }
-                else
-                {
-                    Properties.Settings.Default.login = "";
-                    Properties.Settings.Default.remeberMe = false;
-                }
-                Properties.Settings.Default.Save();
-                // дальше откроем главное окно
-            }
-            else
-            {
-                MessageBox.Show("Неверный email или пароль");
+                registerForm.ShowDialog();
             }
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            //Program.LoadFont(this);
-
             if (Properties.Settings.Default.remeberMe)
             {
                 LoginTextBox.Text = Properties.Settings.Default.login;
@@ -76,6 +87,7 @@ namespace Project
             PasswordShowButton.BackgroundImage = Properties.Resources.visible;
             PasswordTextBox.UseSystemPasswordChar = false;
         }
+
         private void PasswordShowButton_MouseUp(object sender, MouseEventArgs e)
         {
             PasswordShowButton.BackgroundImage = Properties.Resources.invisible;
