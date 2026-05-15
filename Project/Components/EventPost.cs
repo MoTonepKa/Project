@@ -29,11 +29,17 @@ namespace Project.Components
                 pbImage.ImageLocation = ev.ImagePath;
             }
 
-           
+            
         }
 
         private void EventPost_Load(object sender, EventArgs e)
         {
+            int deltaHeight = pbImage.Size.Height;
+            pbImage.Size = new Size(pbImage.Size.Width, pbImage.BackgroundImage.Height * pbImage.Size.Width / pbImage.BackgroundImage.Width - Padding.Vertical - Padding.Horizontal);
+            deltaHeight -= pbImage.Size.Height;
+            deltaHeight *= -1;
+            Height += deltaHeight;
+
             DrawInterface.LoadFont(this);
             DrawInterface.LoadFont(lblTitle);
             DrawInterface.DrawBorderLine(this);

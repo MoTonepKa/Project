@@ -47,9 +47,9 @@
             // LogoutButton
             // 
             LogoutButton.FlatStyle = FlatStyle.Flat;
-            LogoutButton.Location = new Point(22, 460);
+            LogoutButton.Location = new Point(32, 626);
             LogoutButton.Name = "LogoutButton";
-            LogoutButton.Size = new Size(210, 50);
+            LogoutButton.Size = new Size(260, 50);
             LogoutButton.TabIndex = 2;
             LogoutButton.Text = "Выйти";
             LogoutButton.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
             // AddPostButton
             // 
             AddPostButton.FlatStyle = FlatStyle.Flat;
-            AddPostButton.Location = new Point(22, 244);
+            AddPostButton.Location = new Point(32, 178);
             AddPostButton.Margin = new Padding(8);
             AddPostButton.Name = "AddPostButton";
-            AddPostButton.Size = new Size(210, 50);
+            AddPostButton.Size = new Size(260, 50);
             AddPostButton.TabIndex = 1;
             AddPostButton.Text = "Предложить событие";
             AddPostButton.UseVisualStyleBackColor = true;
@@ -70,10 +70,10 @@
             // 
             ModerationButton.BackColor = SystemColors.Window;
             ModerationButton.FlatStyle = FlatStyle.Flat;
-            ModerationButton.Location = new Point(22, 178);
+            ModerationButton.Location = new Point(32, 244);
             ModerationButton.Margin = new Padding(8);
             ModerationButton.Name = "ModerationButton";
-            ModerationButton.Size = new Size(210, 50);
+            ModerationButton.Size = new Size(260, 50);
             ModerationButton.TabIndex = 0;
             ModerationButton.Text = "Модерация";
             ModerationButton.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@
             // 
             ProfileLabel.Location = new Point(83, 13);
             ProfileLabel.Name = "ProfileLabel";
-            ProfileLabel.Size = new Size(101, 64);
+            ProfileLabel.Size = new Size(224, 64);
             ProfileLabel.TabIndex = 7;
             ProfileLabel.Text = "[Username]";
             ProfileLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -104,11 +104,11 @@
             // 
             pnlEvents.AutoScroll = true;
             pnlEvents.BackColor = SystemColors.MenuBar;
-            pnlEvents.Location = new Point(336, 32);
+            pnlEvents.Location = new Point(355, 32);
             pnlEvents.Margin = new Padding(32, 0, 32, 0);
             pnlEvents.Name = "pnlEvents";
-            pnlEvents.Padding = new Padding(32, 8, 32, 32);
-            pnlEvents.Size = new Size(514, 528);
+            pnlEvents.Padding = new Padding(64, 16, 64, 32);
+            pnlEvents.Size = new Size(884, 688);
             pnlEvents.TabIndex = 8;
             // 
             // ProfilePanel
@@ -118,17 +118,18 @@
             ProfilePanel.Location = new Point(0, -1);
             ProfilePanel.Name = "ProfilePanel";
             ProfilePanel.Padding = new Padding(10);
-            ProfilePanel.Size = new Size(270, 90);
+            ProfilePanel.Size = new Size(320, 90);
             ProfilePanel.TabIndex = 0;
             // 
             // titleBar2
             // 
             titleBar2.AutoValidate = AutoValidate.EnablePreventFocusChange;
             titleBar2.BackColor = Color.DodgerBlue;
+            titleBar2.Dock = DockStyle.Top;
             titleBar2.Location = new Point(0, 0);
             titleBar2.Margin = new Padding(0);
             titleBar2.Name = "titleBar2";
-            titleBar2.Size = new Size(880, 32);
+            titleBar2.Size = new Size(1280, 32);
             titleBar2.TabIndex = 0;
             titleBar2.TitleBarColor = Color.DodgerBlue;
             titleBar2.TitleText = "MainForm";
@@ -144,19 +145,19 @@
             SidebarPanel.Margin = new Padding(8);
             SidebarPanel.Name = "SidebarPanel";
             SidebarPanel.Padding = new Padding(8);
-            SidebarPanel.Size = new Size(270, 528);
+            SidebarPanel.Size = new Size(320, 688);
             SidebarPanel.TabIndex = 9;
             // 
             // HomeButton
             // 
             HomeButton.BackColor = SystemColors.Window;
             HomeButton.FlatStyle = FlatStyle.Flat;
-            HomeButton.Location = new Point(22, 112);
+            HomeButton.Location = new Point(32, 112);
             HomeButton.Margin = new Padding(8);
             HomeButton.Name = "HomeButton";
-            HomeButton.Size = new Size(210, 50);
+            HomeButton.Size = new Size(260, 50);
             HomeButton.TabIndex = 3;
-            HomeButton.Text = "Модерация";
+            HomeButton.Text = "Главная страница";
             HomeButton.UseVisualStyleBackColor = false;
             // 
             // MainForm
@@ -165,15 +166,14 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             CausesValidation = false;
-            ClientSize = new Size(880, 560);
+            ClientSize = new Size(1280, 720);
             Controls.Add(SidebarPanel);
             Controls.Add(titleBar2);
             Controls.Add(pnlEvents);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
-            Padding = new Padding(0, 32, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             FormClosed += MainForm_Closed;
