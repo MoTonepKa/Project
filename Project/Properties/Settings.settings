@@ -8,11 +8,5 @@
     <Setting Name="remeberMe" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="backColor" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">245, 235, 220</Value>
-    </Setting>
-    <Setting Name="foreColor" Type="System.Drawing.Color" Scope="Application">
-      <Value Profile="(Default)">51, 50, 48</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

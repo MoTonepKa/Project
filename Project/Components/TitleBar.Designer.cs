@@ -94,6 +94,7 @@
             Size = new Size(200, 32);
             Load += TitleBar_Load;
             MouseDown += TitleBar_MouseDown;
+            Load += TitleBar_Load;
             ResumeLayout(false);
             PerformLayout();
         }

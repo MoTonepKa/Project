@@ -46,23 +46,5 @@ namespace Project.Properties {
                 this["remeberMe"] = value;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("245, 235, 220")]
-        public global::System.Drawing.Color backColor {
-            get {
-                return ((global::System.Drawing.Color)(this["backColor"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("51, 50, 48")]
-        public global::System.Drawing.Color foreColor {
-            get {
-                return ((global::System.Drawing.Color)(this["foreColor"]));
-            }
-        }
     }
 }

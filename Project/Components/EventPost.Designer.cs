@@ -44,7 +44,6 @@
             pbImage.BorderStyle = BorderStyle.FixedSingle;
             pbImage.Dock = DockStyle.Top;
             pbImage.Location = new Point(16, 16);
-            pbImage.Margin = new Padding(3, 3, 3, 16);
             pbImage.Name = "pbImage";
             pbImage.Size = new Size(448, 180);
             pbImage.TabIndex = 0;
@@ -52,11 +51,9 @@
             // 
             // lblTitle
             // 
-            lblTitle.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTitle.Location = new Point(16, 212);
-            lblTitle.Margin = new Padding(3, 0, 3, 8);
+            lblTitle.Location = new Point(8, 200);
             lblTitle.Name = "lblTitle";
             lblTitle.Padding = new Padding(8, 0, 8, 0);
             lblTitle.Size = new Size(109, 21);
@@ -65,11 +62,11 @@
             // 
             // lblDesc
             // 
-            lblDesc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblDesc.Location = new Point(19, 241);
+            lblDesc.Dock = DockStyle.Bottom;
+            lblDesc.Location = new Point(16, 224);
             lblDesc.Name = "lblDesc";
             lblDesc.Padding = new Padding(4);
-            lblDesc.Size = new Size(442, 26);
+            lblDesc.Size = new Size(448, 120);
             lblDesc.TabIndex = 2;
             lblDesc.Text = "Описание";
             // 
@@ -77,7 +74,7 @@
             // 
             lblAuthor.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblAuthor.AutoSize = true;
-            lblAuthor.Location = new Point(16, 287);
+            lblAuthor.Location = new Point(16, 327);
             lblAuthor.Name = "lblAuthor";
             lblAuthor.Size = new Size(40, 15);
             lblAuthor.TabIndex = 3;
@@ -86,7 +83,7 @@
             // lblDate
             // 
             lblDate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lblDate.Location = new Point(374, 287);
+            lblDate.Location = new Point(374, 327);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(90, 16);
             lblDate.TabIndex = 4;
@@ -106,7 +103,7 @@
             Margin = new Padding(0, 16, 0, 0);
             Name = "EventPost";
             Padding = new Padding(16);
-            Size = new Size(480, 320);
+            Size = new Size(480, 360);
             Load += EventPost_Load;
             ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
             ResumeLayout(false);

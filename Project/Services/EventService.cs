@@ -1,6 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
-using Microsoft.Data.Sqlite; // Используем Microsoft
+using Microsoft.Data.Sqlite;
 using Project.Data;
 using Project.Models;
 
@@ -8,57 +9,60 @@ namespace Project.Services
 {
     public class EventService
     {
-        public List<UniversityEvent> GetAllEvents()
+        public void CreateEvent(string title, string description, string authorName, string university, string imagePath)
+        {
+            using (var connection = EventDB.GetConnection())
+            {
+                connection.Open();
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = @"
+                    INSERT INTO Events (Title, Description, EventDate, AuthorName, University, ImagePath)
+                    VALUES (@title, @desc, @date, @author, @uni, @path);";
+
+                cmd.Parameters.AddWithValue("@title", title);
+                cmd.Parameters.AddWithValue("@desc", description);
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                cmd.Parameters.AddWithValue("@author", authorName);
+                cmd.Parameters.AddWithValue("@uni", university);
+                cmd.Parameters.AddWithValue("@path", imagePath ?? "");
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public List<UniversityEvent> GetEventsByUniversity(string userUniversity)
         {
             var events = new List<UniversityEvent>();
 
             using (var connection = new SqliteConnection(EventDB.ConnectionString))
             {
                 connection.Open();
-                string sql = "SELECT * FROM Events";
+                string sql = @"SELECT Id, Title, Description, EventDate, ImagePath, AuthorName, University 
+                               FROM Events 
+                               WHERE University = @university";
 
                 using (var command = new SqliteCommand(sql, connection))
-                using (var reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    command.Parameters.AddWithValue("@university", userUniversity);
+
+                    using (var reader = command.ExecuteReader())
                     {
-                        events.Add(new UniversityEvent
+                        while (reader.Read())
                         {
-                            Id = reader.GetInt32(0), // Можно получать по индексу
-                            Title = reader.GetString(1),
-                            Description = reader.IsDBNull(2) ? "" : reader.GetString(2),
-                            Date = DateTime.Parse(reader.GetString(3)),
-                            ImagePath = reader.IsDBNull(4) ? "" : reader.GetString(4)
-                        });
+                            events.Add(new UniversityEvent
+                            {
+                                Id = reader.GetInt32(0),
+                                Title = reader.GetString(1),
+                                Description = reader.IsDBNull(2) ? "" : reader.GetString(2),
+                                EventDate = DateTime.Parse(reader.GetString(3)), 
+                                ImagePath = reader.IsDBNull(4) ? "" : reader.GetString(4),
+                                AuthorName = reader.IsDBNull(5) ? "" : reader.GetString(5), 
+                                University = reader.IsDBNull(6) ? "" : reader.GetString(6)
+                            });
+                        }
                     }
                 }
             }
             return events;
-        }
-        public static void SeedData()
-        {
-            using (var connection = new SqliteConnection(EventDB.ConnectionString))
-            {
-                connection.Open();
-
-                // Проверяем, есть ли уже данные, чтобы не дублировать их при каждом запуске
-                string checkSql = "SELECT COUNT(*) FROM Events";
-                using (var checkCmd = new SqliteCommand(checkSql, connection))
-                {
-                    if (Convert.ToInt32(checkCmd.ExecuteScalar()) > 0) return;
-                }
-
-                string insertSql = @"
-            INSERT INTO Events (Title, Description, EventDate, ImagePath) VALUES 
-            ('Семинар по квантовой физике', 'Обсуждение излучения абсолютно черного тела и фотоэффекта. Аудитория 402.', '2026-05-10 14:00:00', 'images/physics.jpg'),
-            ('Мастер-класс: Ряды Фурье', 'Разбор задач по высшей математике и подготовка к защите.', '2026-05-12 10:30:00', 'images/math.jpg'),
-            ('Дискуссия: Философия истории', 'Линейный подход и мифологическое сознание в культуре.', '2026-05-15 16:00:00', 'images/philosophy.jpg');";
-
-                using (var command = new SqliteCommand(insertSql, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
         }
     }
 }

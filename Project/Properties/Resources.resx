@@ -142,6 +142,20 @@
     <value>..\Resources\RobotoSlab-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     <comment>font</comment>
   </data>
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <data name="MOLOKO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MOLOKO.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>font</comment>
+  </data>
+=======
+>>>>>>> parent of d16a131 (15/05/2026 (2))
+=======
+>>>>>>> parent of d16a131 (15/05/2026 (2))
+  <data name="SpriteGraffiti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpriteGraffiti-Shadow.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <comment>font</comment>
+  </data>
   <data name="visible" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\visible.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
