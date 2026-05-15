@@ -16,6 +16,8 @@ namespace Project.Components
         public EventPost(UniversityEvent ev)
         {
             InitializeComponent();
+            
+
 
             lblTitle.Text = ev.Title;
             lblDesc.Text = ev.Description;
@@ -27,7 +29,16 @@ namespace Project.Components
                 pbImage.ImageLocation = ev.ImagePath;
             }
 
+           
         }
 
+        private void EventPost_Load(object sender, EventArgs e)
+        {
+            DrawInterface.LoadFont(this);
+            DrawInterface.LoadFont(lblTitle);
+            DrawInterface.DrawBorderLine(this);
+            //DrawInterface.DrawBorderLine(pbImage);
+            DrawInterface.DrawRectShadow(pbImage, this);
+        }
     }
 }

@@ -40,35 +40,41 @@
             // pbImage
             // 
             pbImage.BackgroundImage = (Image)resources.GetObject("pbImage.BackgroundImage");
-            pbImage.BackgroundImageLayout = ImageLayout.Zoom;
+            pbImage.BackgroundImageLayout = ImageLayout.Stretch;
+            pbImage.BorderStyle = BorderStyle.FixedSingle;
             pbImage.Dock = DockStyle.Top;
-            pbImage.Location = new Point(8, 8);
+            pbImage.Location = new Point(16, 16);
             pbImage.Name = "pbImage";
-            pbImage.Size = new Size(364, 170);
+            pbImage.Size = new Size(448, 180);
             pbImage.TabIndex = 0;
             pbImage.TabStop = false;
             // 
             // lblTitle
             // 
+            lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTitle.Location = new Point(8, 180);
+            lblTitle.Location = new Point(8, 200);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(364, 20);
+            lblTitle.Padding = new Padding(8, 0, 8, 0);
+            lblTitle.Size = new Size(109, 21);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Заголовок";
             // 
             // lblDesc
             // 
-            lblDesc.Location = new Point(8, 210);
+            lblDesc.Dock = DockStyle.Bottom;
+            lblDesc.Location = new Point(16, 224);
             lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(364, 65);
+            lblDesc.Padding = new Padding(4);
+            lblDesc.Size = new Size(448, 120);
             lblDesc.TabIndex = 2;
             lblDesc.Text = "Описание";
             // 
             // lblAuthor
             // 
+            lblAuthor.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblAuthor.AutoSize = true;
-            lblAuthor.Location = new Point(8, 288);
+            lblAuthor.Location = new Point(16, 327);
             lblAuthor.Name = "lblAuthor";
             lblAuthor.Size = new Size(40, 15);
             lblAuthor.TabIndex = 3;
@@ -76,13 +82,13 @@
             // 
             // lblDate
             // 
-            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblDate.Location = new Point(282, 288);
+            lblDate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblDate.Location = new Point(374, 327);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(90, 16);
             lblDate.TabIndex = 4;
             lblDate.Text = "Дата";
-            lblDate.TextAlign = ContentAlignment.TopRight;
+            lblDate.TextAlign = ContentAlignment.BottomRight;
             // 
             // EventPost
             // 
@@ -96,8 +102,9 @@
             Controls.Add(pbImage);
             Margin = new Padding(0, 16, 0, 0);
             Name = "EventPost";
-            Padding = new Padding(8);
-            Size = new Size(380, 312);
+            Padding = new Padding(16);
+            Size = new Size(480, 360);
+            Load += EventPost_Load;
             ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
