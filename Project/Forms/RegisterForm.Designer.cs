@@ -40,6 +40,7 @@
             groupBox1 = new GroupBox();
             label1 = new Label();
             TitleBar = new TitleBar();
+            AgreementCheckBox = new CheckBox();
             NameGroupBox.SuspendLayout();
             LoginGroupBox.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -162,11 +163,22 @@
             TitleBar.TabIndex = 11;
             TitleBar.Title = "Регистрация";
             // 
+            // AgreementCheckBox
+            // 
+            AgreementCheckBox.FlatStyle = FlatStyle.System;
+            AgreementCheckBox.Location = new Point(56, 373);
+            AgreementCheckBox.Name = "AgreementCheckBox";
+            AgreementCheckBox.Size = new Size(250, 30);
+            AgreementCheckBox.TabIndex = 12;
+            AgreementCheckBox.Text = "Я согласен c условиями приложения";
+            AgreementCheckBox.UseVisualStyleBackColor = true;
+            // 
             // RegisterForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             ClientSize = new Size(400, 500);
+            Controls.Add(AgreementCheckBox);
             Controls.Add(TitleBar);
             Controls.Add(label1);
             Controls.Add(UniversityComboBox);
@@ -184,6 +196,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Регистрация";
             FormClosed += RegisterForm_Closed;
+            Load += RegisterForm_Load;
             NameGroupBox.ResumeLayout(false);
             NameGroupBox.PerformLayout();
             LoginGroupBox.ResumeLayout(false);
@@ -207,5 +220,6 @@
         private GroupBox groupBox1;
         private Label label1;
         private TitleBar TitleBar;
+        private CheckBox AgreementCheckBox;
     }
 }

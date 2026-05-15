@@ -45,7 +45,8 @@ namespace Project.Forms
 
         private void TitleBar_Load(object sender, EventArgs e)
         {
-            TitleLabel.Font = new Font(Program.MyFontCollection.Families[1], Font.SizeInPoints, Font.Style);
+            DrawInterface.LoadFont(TitleLabel);
+            //DrawInterface.LoadFont()
         }
     }
 }

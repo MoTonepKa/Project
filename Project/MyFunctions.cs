@@ -20,16 +20,12 @@ namespace Project
 
             fontPath = Path.Combine(Application.StartupPath, "Resources", "RobotoSlab-Regular.ttf");
             MyFontCollection.AddFontFile(fontPath);
-            fontPath = Path.Combine(Application.StartupPath, "Resources", "SpriteGraffiti-Regular.ttf");
-            MyFontCollection.AddFontFile(fontPath);
-            fontPath = Path.Combine(Application.StartupPath, "Resources", "SpriteGraffiti-Shadow.ttf");
-            MyFontCollection.AddFontFile(fontPath);
         }
 
-        public static void LoadFont(Control control, int style = 0)
+        public static void LoadFont(Control control, int fontIndex = 0)
         {
             control.Font = new Font(
-                MyFontCollection.Families[0],
+                MyFontCollection.Families[fontIndex],
                 control.Font.SizeInPoints,
                 control.Font.Style
             );

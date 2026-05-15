@@ -14,12 +14,6 @@ namespace Project // Исправили: теперь совпадает с Desi
         public LoginForm()
         {
             InitializeComponent();
-
-            // Проверяем, загружен ли шрифт в Program
-            if (Program.MyFontCollection.Families.Length > 0)
-            {
-                Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
-            }
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -75,6 +69,8 @@ namespace Project // Исправили: теперь совпадает с Desi
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            DrawInterface.LoadFont(this);
+
             if (Properties.Settings.Default.remeberMe)
             {
                 LoginTextBox.Text = Properties.Settings.Default.login;

@@ -25,19 +25,9 @@ namespace Project
 
             StudentDB.Initialize();
 
-            LoadFont();
+            DrawInterface.SetupFont();
             MainForm = new LoginForm();
             Application.Run(MainForm);
-            
-        }
-
-        public static void LoadFont()
-        {
-            string fontPath = Path.Combine(Application.StartupPath, "Resources", "SpriteGraffiti-Regular.ttf");
-            MyFontCollection.AddFontFile(fontPath);
-            fontPath = Path.Combine(Application.StartupPath, "Resources", "SpriteGraffiti-Shadow.ttf");
-            MyFontCollection.AddFontFile(fontPath);
-            //form.Font = new Font(MyFontCollection.Families[0], 9, FontStyle.Regular);
         }
     }
 }

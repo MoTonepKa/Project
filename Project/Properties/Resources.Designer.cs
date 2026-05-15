@@ -71,6 +71,16 @@ namespace Project.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap default_avatar {
+            get {
+                object obj = ResourceManager.GetObject("default_avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
         internal static byte[] icon_256 {
@@ -111,12 +121,12 @@ namespace Project.Properties {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] MOLOKO {
+        internal static System.Drawing.Bitmap my_avatar {
             get {
-                object obj = ResourceManager.GetObject("MOLOKO", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("my_avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -136,16 +146,6 @@ namespace Project.Properties {
         internal static byte[] RobotoSlab_Regular {
             get {
                 object obj = ResourceManager.GetObject("RobotoSlab_Regular", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Byte[].
-        /// </summary>
-        internal static byte[] SpriteGraffiti {
-            get {
-                object obj = ResourceManager.GetObject("SpriteGraffiti", resourceCulture);
                 return ((byte[])(obj));
             }
         }

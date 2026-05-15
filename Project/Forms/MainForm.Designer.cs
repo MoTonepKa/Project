@@ -76,9 +76,9 @@
             // 
             // ProfileImageBox
             // 
-            ProfileImageBox.BackgroundImageLayout = ImageLayout.Center;
+            ProfileImageBox.BackgroundImage = Properties.Resources.default_avatar;
+            ProfileImageBox.BackgroundImageLayout = ImageLayout.Stretch;
             ProfileImageBox.Cursor = Cursors.Help;
-            ProfileImageBox.Image = (Image)resources.GetObject("ProfileImageBox.Image");
             ProfileImageBox.Location = new Point(13, 13);
             ProfileImageBox.Name = "ProfileImageBox";
             ProfileImageBox.Size = new Size(64, 64);
@@ -157,6 +157,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             FormClosed += MainForm_Closed;
+            Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)ProfileImageBox).EndInit();
             SidebarFlowLayoutPanel.ResumeLayout(false);
             ProfilePanel.ResumeLayout(false);

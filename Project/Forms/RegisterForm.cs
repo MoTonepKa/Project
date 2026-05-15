@@ -12,12 +12,16 @@ namespace Project.Forms
         public RegisterForm()
         {
             InitializeComponent();
-            // Устанавливаем шрифт из твоей коллекции
-            Font = new Font(Program.MyFontCollection.Families[0], Font.SizeInPoints, Font.Style);
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+            if (!AgreementCheckBox.Checked)
+            {
+                MessageBox.Show("Вы не согласились с условиями приложения", "Ошибка регистрации", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 // Просто передаем данные в сервис. 
@@ -47,6 +51,11 @@ namespace Project.Forms
         private void RegisterForm_Closed(object sender, FormClosedEventArgs e)
         {
             Program.MainForm.Show();
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            DrawInterface.LoadFont(this);
         }
     }
 }

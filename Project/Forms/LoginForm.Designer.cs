@@ -127,7 +127,7 @@ namespace Project
             RememberCheckBox.FlatStyle = FlatStyle.System;
             RememberCheckBox.Location = new Point(56, 373);
             RememberCheckBox.Name = "RememberCheckBox";
-            RememberCheckBox.Size = new Size(288, 30);
+            RememberCheckBox.Size = new Size(137, 30);
             RememberCheckBox.TabIndex = 2;
             RememberCheckBox.Text = " Запомнить меня";
             RememberCheckBox.UseVisualStyleBackColor = true;
