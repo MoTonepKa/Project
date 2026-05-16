@@ -29,86 +29,162 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventPost));
-            pbImage = new PictureBox();
-            lblTitle = new Label();
-            lblDesc = new Label();
-            lblAuthor = new Label();
-            lblDate = new Label();
-            ((System.ComponentModel.ISupportInitialize)pbImage).BeginInit();
+            PostPictureBox = new PictureBox();
+            TitleLabel = new Label();
+            TextLabel = new Label();
+            AuthorLabel = new Label();
+            DateLabel = new Label();
+            AlarmIcon = new PictureBox();
+            ProfilePictureBox = new PictureBox();
+            StudenthatImage = new PictureBox();
+            FavoriteLabel = new Label();
+            HeartIcon = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)PostPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AlarmIcon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)StudenthatImage).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)HeartIcon).BeginInit();
             SuspendLayout();
             // 
-            // pbImage
+            // PostPictureBox
             // 
-            pbImage.BackgroundImage = (Image)resources.GetObject("pbImage.BackgroundImage");
-            pbImage.BackgroundImageLayout = ImageLayout.Zoom;
-            pbImage.Dock = DockStyle.Top;
-            pbImage.Location = new Point(8, 8);
-            pbImage.Name = "pbImage";
-            pbImage.Size = new Size(364, 170);
-            pbImage.TabIndex = 0;
-            pbImage.TabStop = false;
+            PostPictureBox.BackgroundImage = (Image)resources.GetObject("PostPictureBox.BackgroundImage");
+            PostPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
+            PostPictureBox.Location = new Point(0, 70);
+            PostPictureBox.Name = "PostPictureBox";
+            PostPictureBox.Size = new Size(600, 420);
+            PostPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            PostPictureBox.TabIndex = 0;
+            PostPictureBox.TabStop = false;
             // 
-            // lblTitle
+            // TitleLabel
             // 
-            lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTitle.Location = new Point(8, 180);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(364, 20);
-            lblTitle.TabIndex = 1;
-            lblTitle.Text = "Заголовок";
+            TitleLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            TitleLabel.Location = new Point(32, 510);
+            TitleLabel.Name = "TitleLabel";
+            TitleLabel.Size = new Size(273, 20);
+            TitleLabel.TabIndex = 1;
+            TitleLabel.Text = "Заголовок";
             // 
-            // lblDesc
+            // TextLabel
             // 
-            lblDesc.Location = new Point(8, 210);
-            lblDesc.Name = "lblDesc";
-            lblDesc.Size = new Size(364, 65);
-            lblDesc.TabIndex = 2;
-            lblDesc.Text = "Описание";
+            TextLabel.Location = new Point(28, 542);
+            TextLabel.Name = "TextLabel";
+            TextLabel.Size = new Size(538, 65);
+            TextLabel.TabIndex = 2;
+            TextLabel.Text = "Описание";
             // 
-            // lblAuthor
+            // AuthorLabel
             // 
-            lblAuthor.AutoSize = true;
-            lblAuthor.Location = new Point(8, 288);
-            lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(40, 15);
-            lblAuthor.TabIndex = 3;
-            lblAuthor.Text = "Автор";
+            AuthorLabel.AutoSize = true;
+            AuthorLabel.Location = new Point(90, 34);
+            AuthorLabel.Name = "AuthorLabel";
+            AuthorLabel.Size = new Size(61, 15);
+            AuthorLabel.TabIndex = 3;
+            AuthorLabel.Text = "Nickname";
             // 
-            // lblDate
+            // DateLabel
             // 
-            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblDate.Location = new Point(282, 288);
-            lblDate.Name = "lblDate";
-            lblDate.Size = new Size(90, 16);
-            lblDate.TabIndex = 4;
-            lblDate.Text = "Дата";
-            lblDate.TextAlign = ContentAlignment.TopRight;
+            DateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            DateLabel.Location = new Point(370, 34);
+            DateLabel.Name = "DateLabel";
+            DateLabel.Size = new Size(171, 16);
+            DateLabel.TabIndex = 4;
+            DateLabel.Text = "Дата поста: 00. 00. 0000";
+            DateLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // AlarmIcon
+            // 
+            AlarmIcon.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            AlarmIcon.Image = Properties.Resources.alarm;
+            AlarmIcon.Location = new Point(548, 28);
+            AlarmIcon.Name = "AlarmIcon";
+            AlarmIcon.Size = new Size(24, 24);
+            AlarmIcon.TabIndex = 5;
+            AlarmIcon.TabStop = false;
+            // 
+            // ProfilePictureBox
+            // 
+            ProfilePictureBox.BackgroundImage = Properties.Resources.default_avatar;
+            ProfilePictureBox.BackgroundImageLayout = ImageLayout.Zoom;
+            ProfilePictureBox.Location = new Point(28, 22);
+            ProfilePictureBox.Name = "ProfilePictureBox";
+            ProfilePictureBox.Size = new Size(38, 38);
+            ProfilePictureBox.TabIndex = 6;
+            ProfilePictureBox.TabStop = false;
+            // 
+            // StudenthatImage
+            // 
+            StudenthatImage.BackColor = Color.Transparent;
+            StudenthatImage.BackgroundImage = Properties.Resources.student_hat;
+            StudenthatImage.BackgroundImageLayout = ImageLayout.Zoom;
+            StudenthatImage.Cursor = Cursors.Help;
+            StudenthatImage.Location = new Point(34, 7);
+            StudenthatImage.Name = "StudenthatImage";
+            StudenthatImage.Size = new Size(50, 36);
+            StudenthatImage.SizeMode = PictureBoxSizeMode.Zoom;
+            StudenthatImage.TabIndex = 9;
+            StudenthatImage.TabStop = false;
+            // 
+            // FavoriteLabel
+            // 
+            FavoriteLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            FavoriteLabel.Location = new Point(281, 515);
+            FavoriteLabel.Name = "FavoriteLabel";
+            FavoriteLabel.Size = new Size(260, 20);
+            FavoriteLabel.TabIndex = 10;
+            FavoriteLabel.Text = "Количество реакций: 134 тыс.";
+            FavoriteLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // HeartIcon
+            // 
+            HeartIcon.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            HeartIcon.Image = Properties.Resources.heart;
+            HeartIcon.Location = new Point(548, 511);
+            HeartIcon.Name = "HeartIcon";
+            HeartIcon.Size = new Size(24, 24);
+            HeartIcon.TabIndex = 11;
+            HeartIcon.TabStop = false;
             // 
             // EventPost
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            Controls.Add(lblDate);
-            Controls.Add(lblAuthor);
-            Controls.Add(lblDesc);
-            Controls.Add(lblTitle);
-            Controls.Add(pbImage);
-            Margin = new Padding(0, 16, 0, 0);
+            Controls.Add(HeartIcon);
+            Controls.Add(FavoriteLabel);
+            Controls.Add(ProfilePictureBox);
+            Controls.Add(AlarmIcon);
+            Controls.Add(AuthorLabel);
+            Controls.Add(DateLabel);
+            Controls.Add(TextLabel);
+            Controls.Add(TitleLabel);
+            Controls.Add(PostPictureBox);
+            Controls.Add(StudenthatImage);
+            Margin = new Padding(0);
             Name = "EventPost";
             Padding = new Padding(8);
-            Size = new Size(380, 312);
-            ((System.ComponentModel.ISupportInitialize)pbImage).EndInit();
+            Size = new Size(600, 628);
+            ((System.ComponentModel.ISupportInitialize)PostPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AlarmIcon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProfilePictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)StudenthatImage).EndInit();
+            ((System.ComponentModel.ISupportInitialize)HeartIcon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pbImage;
-        private Label lblTitle;
-        private Label lblDesc;
-        private Label lblAuthor;
-        private Label lblDate;
+        private PictureBox PostPictureBox;
+        private Label TitleLabel;
+        private Label TextLabel;
+        private Label AuthorLabel;
+        private Label DateLabel;
+        private PictureBox AlarmIcon;
+        private PictureBox ProfilePictureBox;
+        private PictureBox StudenthatImage;
+        private Label FavoriteLabel;
+        private PictureBox HeartIcon;
     }
 }

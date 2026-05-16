@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Drawing.Imaging;
 
 namespace Project.Forms
 {
@@ -15,6 +16,21 @@ namespace Project.Forms
         {
             get => TitleLabel.Text;
             set => TitleLabel.Text = value;
+        }
+
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public Color TitlebarColor
+        {
+            get => BackColor;
+            set => BackColor = value;
+        }
+        [Browsable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public Color TitlelabelColor
+        {
+            get => TitleLabel.ForeColor;
+            set => TitleLabel.ForeColor = value;
         }
 
         private void MinimizeButton_Click(object sender, EventArgs e)
@@ -46,7 +62,12 @@ namespace Project.Forms
         private void TitleBar_Load(object sender, EventArgs e)
         {
             DrawInterface.LoadFont(TitleLabel);
-            //DrawInterface.LoadFont()
+
+            MinimizeButton.FlatAppearance.MouseDownBackColor = ControlPaint.Dark(TitlebarColor, 0.25f);
+            MinimizeButton.FlatAppearance.MouseOverBackColor = ControlPaint.LightLight(TitlebarColor);
+
+            CloseButton.FlatAppearance.MouseDownBackColor = ControlPaint.Dark(TitlebarColor, 0.25f);
+            CloseButton.FlatAppearance.MouseOverBackColor = ControlPaint.LightLight(TitlebarColor);
         }
     }
 }

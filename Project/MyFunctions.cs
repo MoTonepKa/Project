@@ -31,40 +31,25 @@ namespace Project
             );
         }
 
-        static int fade_delay = 5;
-
-        public static async void CloseWithAnimation(Form form)
+        public static void MakeRoundedCorners(Control control, int radius = 8)
         {
-            form.Opacity = 1;
-            while (form.Opacity > 0)
+            GraphicsPath path = new GraphicsPath();
+
+            int d = radius * 2;
+
+            path.StartFigure();
+            path.AddArc(0, 0, d, d, 180, 90);
+            path.AddArc(control.Width - d, 0, d, d, 270, 90);
+            path.AddArc(control.Width - d, control.Height - d, d, d, 0, 90);
+            path.AddArc(0, control.Height - d, d, d, 90, 90);
+            path.CloseFigure();
+
+            control.Region = new Region(path);
+
+            control.Paint += (s, e) =>
             {
-                form.Opacity -= 0.05;
-                await Task.Delay(fade_delay);
-            }
-
-            form.Close();
-        }
-
-        public static async void HideWithAnimation(Form form)
-        {
-            form.Opacity = 1;
-            while (form.Opacity > 0)
-            {
-                form.Opacity -= 0.05;
-                await Task.Delay(fade_delay);
-            }
-
-            form.Hide();
-        }
-
-        public static async void OpenWithAnimation(Form form)
-        {
-            form.Opacity = 0;
-            while (form.Opacity < 1)
-            {
-                form.Opacity += 0.05;
-                await Task.Delay(fade_delay);
-            }
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            };
         }
 
         public static void DrawBorderLine(Control control, int size = 1)
@@ -130,8 +115,6 @@ namespace Project
 
             return result;
         }
-
-
 
         public static Bitmap ConvertDithering(Image image)
         {

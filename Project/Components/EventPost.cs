@@ -16,29 +16,33 @@ namespace Project.Components
         public EventPost(UniversityEvent ev)
         {
             InitializeComponent();
-            
 
-
-            lblTitle.Text = ev.Title;
-            lblDesc.Text = ev.Description;
-            lblDate.Text = ev.EventDate.ToString("dd.MM.yyyy HH:mm");
-            lblAuthor.Text = ev.AuthorName;
+            TitleLabel.Text = ev.Title;
+            TextLabel.Text = ev.Description;
+            DateLabel.Text = "Дата поста: " + ev.EventDate.ToString("dd.MM.yyyy HH:mm");
+            AuthorLabel.Text = ev.AuthorName;
 
             if (!string.IsNullOrEmpty(ev.ImagePath) && File.Exists(ev.ImagePath))
             {
-                pbImage.ImageLocation = ev.ImagePath;
+                PostPictureBox.ImageLocation = ev.ImagePath;
             }
 
-           
+            Start();
         }
 
         private void EventPost_Load(object sender, EventArgs e)
         {
             DrawInterface.LoadFont(this);
-            DrawInterface.LoadFont(lblTitle);
-            DrawInterface.DrawBorderLine(this);
-            //DrawInterface.DrawBorderLine(pbImage);
-            DrawInterface.DrawRectShadow(pbImage, this);
+            DrawInterface.CropToCircle(ProfilePictureBox.BackgroundImage, ProfilePictureBox.Width);
+        }
+
+        private async void Start()
+        {
+            await Task.Delay(1);
+
+            DrawInterface.LoadFont(TitleLabel);
+            PostPictureBox.Width = Width;
+            DrawInterface.MakeRoundedCorners(PostPictureBox);
         }
     }
 }

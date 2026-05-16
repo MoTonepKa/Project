@@ -36,6 +36,7 @@
             btnPublish = new Button();
             btnCancel = new Button();
             selectImageDialog = new OpenFileDialog();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)picPreview).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             // 
             // btnSelectImage
             // 
-            btnSelectImage.Location = new Point(264, 233);
+            btnSelectImage.Location = new Point(470, 233);
             btnSelectImage.Name = "btnSelectImage";
             btnSelectImage.Size = new Size(158, 23);
             btnSelectImage.TabIndex = 5;
@@ -78,7 +79,7 @@
             // 
             // btnRemoveImage
             // 
-            btnRemoveImage.Location = new Point(478, 233);
+            btnRemoveImage.Location = new Point(264, 233);
             btnRemoveImage.Name = "btnRemoveImage";
             btnRemoveImage.Size = new Size(150, 23);
             btnRemoveImage.TabIndex = 6;
@@ -105,11 +106,18 @@
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(264, 272);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 9;
+            // 
             // CreateEventForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(651, 450);
+            Controls.Add(dateTimePicker1);
             Controls.Add(btnCancel);
             Controls.Add(btnPublish);
             Controls.Add(btnRemoveImage);
@@ -117,7 +125,9 @@
             Controls.Add(picPreview);
             Controls.Add(txtDescription);
             Controls.Add(txtTitle);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "CreateEventForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Предложить событие";
             ((System.ComponentModel.ISupportInitialize)picPreview).EndInit();
             ResumeLayout(false);
@@ -134,5 +144,6 @@
         private Button btnPublish;
         private Button btnCancel;
         private OpenFileDialog selectImageDialog;
+        private DateTimePicker dateTimePicker1;
     }
 }

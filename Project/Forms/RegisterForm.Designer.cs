@@ -155,13 +155,15 @@
             // TitleBar
             // 
             TitleBar.AutoValidate = AutoValidate.EnablePreventFocusChange;
-            TitleBar.BackColor = Color.DarkGray;
+            TitleBar.BackColor = Color.IndianRed;
             TitleBar.Location = new Point(0, 0);
             TitleBar.Margin = new Padding(0);
             TitleBar.Name = "TitleBar";
             TitleBar.Size = new Size(400, 32);
             TitleBar.TabIndex = 11;
             TitleBar.Title = "Регистрация";
+            TitleBar.TitlebarColor = Color.IndianRed;
+            TitleBar.TitlelabelColor = SystemColors.ControlText;
             // 
             // AgreementCheckBox
             // 

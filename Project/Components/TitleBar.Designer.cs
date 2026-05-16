@@ -35,10 +35,10 @@
             // 
             // MinimizeButton
             // 
-            MinimizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MinimizeButton.BackColor = Color.Transparent;
             MinimizeButton.BackgroundImage = Properties.Resources.remove;
             MinimizeButton.BackgroundImageLayout = ImageLayout.Center;
+            MinimizeButton.Dock = DockStyle.Right;
             MinimizeButton.FlatAppearance.BorderSize = 0;
             MinimizeButton.FlatAppearance.MouseDownBackColor = Color.Silver;
             MinimizeButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
@@ -53,10 +53,10 @@
             // 
             // CloseButton
             // 
-            CloseButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             CloseButton.BackColor = Color.Transparent;
             CloseButton.BackgroundImage = Properties.Resources.close;
             CloseButton.BackgroundImageLayout = ImageLayout.Center;
+            CloseButton.Dock = DockStyle.Right;
             CloseButton.FlatAppearance.BorderSize = 0;
             CloseButton.FlatAppearance.MouseDownBackColor = Color.Silver;
             CloseButton.FlatAppearance.MouseOverBackColor = Color.LightGray;
@@ -71,6 +71,7 @@
             // 
             // TitleLabel
             // 
+            TitleLabel.Anchor = AnchorStyles.Left;
             TitleLabel.AutoSize = true;
             TitleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             TitleLabel.ForeColor = SystemColors.ControlText;
@@ -92,8 +93,8 @@
             Margin = new Padding(0);
             Name = "TitleBar";
             Size = new Size(200, 32);
-            MouseDown += TitleBar_MouseDown;
             Load += TitleBar_Load;
+            MouseDown += TitleBar_MouseDown;
             ResumeLayout(false);
             PerformLayout();
         }
